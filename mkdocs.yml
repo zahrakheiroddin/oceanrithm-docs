@@ -1,0 +1,49 @@
+site_name: OceanRithm
+
+theme:
+  name: material
+  logo: images/logo.png
+  favicon: images/favicon.png
+
+extra_css:
+  - css/custom.css
+
+extra_javascript:
+  - js/lang-switcher.js
+
+nav:
+  - Home: index.md
+  - English:
+      - Home: en/index.md
+      - Background: en/background.md
+      - Architecture: en/conceptual-architecture.md
+      - Design Principles: en/design-principles.md
+      - Functional Overview: en/functional-overview.md
+      - Non-Functional Concepts: en/non-functional.md
+      - Workflow Diagrams: en/workflow-diagrams.md
+      - Use Cases: en/use-cases.md
+      - Limitations: en/limitations.md
+      - Future Work: en/future-work.md
+      - Glossary: en/glossary.md
+      - References: en/references.md
+      - About: en/about.md
+      - Disclaimer: en/disclaimer.md
+      - Impressum: en/impressum.md
+      - Privacy: en/privacy.md
+  - Deutsch:
+      - Startseite: de/index.md
+      - Hintergrund: de/background.md
+      - Architektur: de/conceptual-architecture.md
+      - Designprinzipien: de/design-principles.md
+      - Funktionale Übersicht: de/functional-overview.md
+      - Nicht-funktionale Konzepte: de/non-functional.md
+      - Ablaufdiagramme: de/workflow-diagrams.md
+      - Anwendungsfälle: de/use-cases.md
+      - Einschränkungen: de/limitations.md
+      - Zukünftige Arbeiten: de/future-work.md
+      - Glossar: de/glossary.md
+      - Referenzen: de/references.md
+      - Über uns: de/about.md
+      - Haftungsausschluss: de/disclaimer.md
+      - Impressum: de/impressum.md
+      - Datenschutz: de/privacy.md
