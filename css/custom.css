@@ -1,0 +1,141 @@
+/* -------------------------
+   1) HEADER GRADIENT
+   ------------------------- */
+/* Apply OceanRithm gradient to the top navigation bar */
+.md-header {
+    background: linear-gradient(to right, #FCFFFF, #45C7E8) !important;
+}
+
+/* Ensure header text and buttons remain readable */
+.md-header__title,
+.md-header a,
+.md-header__button {
+    color: black !important;
+}
+
+/* Force logo + title to stick tightly on the left */
+.md-header__inner {
+    display: flex !important;
+    align-items: center !important;
+}
+
+/* Remove default spacing between logo and title */
+.md-header__button.md-logo {
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+.md-header__title {
+    margin-left: 6px !important;  /* reduce distance between logo & text */
+    padding: 0 !important;
+}
+
+/* Optional: adjust the logo size */
+.md-logo img {
+    height: 50px !important;
+}
+
+/* Optional: make title vertically centered with logo */
+.md-header__topic {
+    display: flex !important;
+    align-items: center !important;
+    font-size: 1.35rem !important;   /* increase title size */
+    font-weight: 600 !important;
+}
+
+/* -------------------------
+   2) MANTA BACKGROUND – STABLE VERSION
+   (Safe version: does not break layout)
+   ------------------------- */
+
+/* Set a clean white base background and allow positioning */
+body {
+    background: #ffffff !important;
+    position: relative;
+}
+
+/* Add a manta ray watermark across the entire page */
+body::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background-image: url("/images/manta.png");
+    background-repeat: no-repeat;
+    background-position: center 20%;   /* Adjust vertical position if needed */
+    background-size: 45%;              /* Scale of manta image */
+    opacity: 0.08;                     /* Image transparency */
+    filter: grayscale(100%);           /* Desaturate for subtle look */
+    pointer-events: none;              /* Make sure it doesn’t block clicks */
+    z-index: -1;                       /* Keep the image behind all content */
+}
+/* Hide default Material footer text */
+.md-footer {
+    font-size: 0 !important;
+}
+/* Hide the "Made with Material for MkDocs" footer */
+.md-footer-meta,
+.md-footer__inner,
+.md-footer .md-footer-meta,
+.md-footer .md-footer__inner {
+    display: none !important;
+}
+
+/* Custom footer text: OceanRithm Solutions */
+/* Custom footer text: OceanRithm Solutions */
+.md-footer::after {
+    content: "© 2025 OceanRithm Solutions UG (haftungsbeschränkt) – Research Documentation Portal";
+    display: block;
+    text-align: center;
+    padding: 8px 0;
+    font-size: 0.85rem;
+    color: #ffffff;      /* white text */
+    opacity: 0.9;
+}
+/* Language switcher in header */
+.or-lang-switcher {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.85rem;
+}
+
+.or-lang-btn {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 2px 6px;
+    font-weight: 500;
+    opacity: 0.7;
+    border-radius: 999px; /* pill shape */
+}
+
+.or-lang-btn:hover {
+    opacity: 1;
+}
+
+.or-lang-active {
+    opacity: 1;
+    text-decoration: none;
+    outline: 1px solid rgba(255, 255, 255, 0.6);
+    /* if your header is light, you can change this to a darker color later */
+}
+
+.or-lang-sep {
+    opacity: 0.4;
+}
+
+/* Move logo and site name tightly to the left */
+.md-header__title {
+    margin-left: 0 !important;
+    padding-left: 0 !important;
+    display: flex;
+    align-items: center;
+    gap: 4px;  /* distance between logo and text */
+}
+
+/* Reduce extra spacing around the logo */
+.md-header__button.md-logo {
+    margin-left: 0 !important;
+    padding-left: 0 !important;
+}
