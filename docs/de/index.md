@@ -2,7 +2,7 @@
 
 OceanRithm ist ein forschungsorientiertes Framework, das sich auf die Weiterentwicklung von sicherem Workflow Governance, Multi Tenant Abstraktionsmodellen und Orchestrierungstheorie in modernen DevSecOps Ökosystemen konzentriert.
 
-Dieses Portal bietet einen akademisch ausgerichteten, hochstrukturierten Überblick über die konzeptionellen Grundlagen von OceanRithm — entwickelt für:
+Dieses Portal bietet einen akademisch ausgerichteten, hochstrukturierten Überblick über die konzeptionellen Grundlagen von OceanRithm entwickelt für:
 
 - **Akademische Begutachtung**
 - **Peer Review und Publikationsprozesse**
