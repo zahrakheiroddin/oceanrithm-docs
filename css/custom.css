@@ -139,3 +139,13 @@ body::after {
     margin-left: 0 !important;
     padding-left: 0 !important;
 }
+
+/* Mobile drawer header background color */
+.md-nav--primary .md-nav__title[for="__drawer"] {
+    background-color: #b2e9f6;
+}
+
+/* Optional: apply the same color to the entire primary sidebar */
+.md-sidebar--primary {
+    background-color: #b2e9f6;
+}
