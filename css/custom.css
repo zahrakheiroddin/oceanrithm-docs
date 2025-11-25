@@ -152,58 +152,42 @@ body::after {
 /* ------------------------------------------------------
    FIX MOBILE DRAWER LOGO + TITLE (Material for MkDocs)
    Only applies on mobile (drawer mode)
-   /* ------------------------------------------------------
-      FINAL-FORCE FIX for Mobile Drawer Logo + Title
-      This version completely overrides Material behavior
-   ------------------------------------------------------ */
+   /* ---------------- MOBILE DRAWER FIX ---------------- */
    @media (max-width: 900px) {
 
-     /* Drawer header block */
+     /* Main fix: prevent the title area from sticking to the top */
      .md-nav--primary .md-nav__title {
          display: flex !important;
-         flex-direction: column !important;
-         align-items: center !important;
-         justify-content: center !important;
-         padding: 1.4rem 0 1.6rem !important;
-         background-color: #b2e9f6 !important;
-         height: auto !important;
-         min-height: 130px !important;
+         flex-direction: column !important;   /* Logo on top, text below */
+         align-items: center !important;      /* Center horizontally */
+         justify-content: center !important;  /* Center vertically */
+         padding: 1.2rem 0 !important;        /* Vertical spacing */
+         background-color: #b2e9f6 !important;/* Your chosen header color */
+         min-height: 140px !important;        /* Ensures enough space for logo + text */
+         box-sizing: border-box !important;
      }
 
-     /* Fix the logo itself */
+     /* Logo image styling */
      .md-nav--primary .md-nav__title img {
-         width: 95px !important;
-         height: auto !important;
+         width: 82px !important;              /* Logo size */
+         height: auto !important;             /* Maintain proportions */
          display: block !important;
-         margin: 0 auto !important;
-         padding: 0 !important;
+         margin-bottom: 0.3rem !important;    /* Space under logo */
      }
 
-     /* REMOVE ORIGINAL MATERIAL TITLE COMPLETELY */
+     /* "OceanRithm" text styling */
      .md-nav--primary .md-nav__title .md-nav__title-text {
-         display: none !important;
-         visibility: hidden !important;
-         opacity: 0 !important;
-         max-height: 0 !important;
-         height: 0 !important;
+         font-size: 1.1rem !important;
+         font-weight: 700 !important;
+         line-height: 1.25 !important;
+         text-align: center !important;
          margin: 0 !important;
          padding: 0 !important;
-     }
-
-     /* ADD NEW TITLE BELOW LOGO */
-     .md-nav--primary .md-nav__title::after {
-         content: "OceanRithm";
-         font-size: 1.2rem;
-         font-weight: 700;
-         color: #003049;
-         margin-top: 0.5rem;
          display: block !important;
-         text-align: center !important;
-         width: 100%;
      }
 
-     /* Fix spacing below header */
-     .md-nav--primary .md-nav {
+     /* Remove Material default spacing that pushes the logo up */
+     .md-nav--primary nav.md-nav {
          margin-top: 0 !important;
          padding-top: 0 !important;
      }
