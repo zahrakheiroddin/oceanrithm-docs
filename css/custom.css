@@ -156,40 +156,43 @@ body::after {
       REMOVE Drawer Title Label COMPLETELY (100% DELETE)
    ------------------------------------------------------ */
 
-
-   /* --------- MOBILE TOP NAV — Apple Style Logo --------- */
    @media (max-width: 900px) {
 
-     /* Make top nav fixed, clean, high contrast */
-     .md-header {
-         background-color: white !important;
-         box-shadow: 0 1px 4px rgba(0,0,0,0.08) !important;
-         height: 60px !important;
+     /* Remove entire label that contains the old OceanRithm text */
+     label.md-nav__title {
+         display: none !important;
+         visibility: hidden !important;
+         opacity: 0 !important;
+         height: 0 !important;
+         margin: 0 !important;
+         padding: 0 !important;
+     }
+
+     /* Rebuild header with our logo + text */
+     .md-nav--primary .md-nav__title {
          display: flex !important;
+         flex-direction: column !important;
          align-items: center !important;
-         padding: 0 1rem !important;
-         z-index: 200 !important;
+         justify-content: center !important;
+         padding: 1.4rem 0 !important;
+         background-color: #b2e9f6 !important;
      }
 
-     /* Ensure logo is always visible and not faded */
-     .md-header__logo img {
-         width: 32px !important;       /* Apple size */
+     .md-nav--primary .md-nav__title img {
+         width: 95px !important;
          height: auto !important;
-         opacity: 1 !important;         /* Prevent fading */
-         filter: none !important;       /* Remove Material tint */
+         display: block !important;
      }
 
-     /* Remove weird Material transparency on scroll */
-     .md-header--shadow {
-         background-color: white !important;
-     }
-
-     /* Ensure title text isn't pushed down */
-     .md-header__title {
-         margin-left: 0.5rem !important;
-         font-weight: 700 !important;
-         font-size: 1.2rem !important;
-         line-height: 1 !important;
-         color: #000 !important;
+     /* New clean title */
+     .md-nav--primary .md-nav__title::after {
+         content: "OceanRithm";
+         font-size: 1.2rem;
+         font-weight: 700;
+         color: #003049;
+         margin-top: 0.4rem;
+         display: block !important;
      }
    }
+   /* --------- MOBILE TOP NAV — Apple Style Logo --------- */
+  
