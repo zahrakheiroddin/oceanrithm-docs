@@ -149,3 +149,44 @@ body::after {
 .md-sidebar--primary {
     background-color: #b2e9f6;
 }
+/* --- Fix mobile drawer logo layout --- */
+
+/* Wrapper of the drawer brand area */
+.md-nav--primary .md-nav__title {
+    display: flex;
+    flex-direction: column;        /* Put logo on top, text below */
+    align-items: center;           /* Center both */
+    justify-content: center;
+    padding: 1rem 0 1.2rem;        /* Extra spacing */
+}
+
+/* Logo image inside drawer */
+.md-nav--primary .md-nav__title img {
+    width: 90px !important;        /* Bigger clean size */
+    height: auto !important;
+    margin-bottom: 0.4rem;         /* Space below logo */
+}
+
+/* OceanRithm text in drawer */
+.md-nav--primary .md-nav__title .md-nav__title-text {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: #003049;                /* Darker for clarity */
+    margin-top: 0.2rem;
+}
+
+/* Remove default theme spacing that caused overlap */
+.md-nav--primary .md-nav {
+    margin-top: 0 !important;
+}
+/* Make top-level active title (OceanRithm) white in sidebar */
+.md-nav__item.md-nav__item--active > .md-nav__link {
+    background-color: #ffffff !important;
+    color: #000000 !important;  /* optional: keep text black */
+}
+
+/* Remove the blue highlight behind the section title */
+.md-nav__title {
+    background-color: #ffffff !important;
+    color: #000000 !important;
+}
