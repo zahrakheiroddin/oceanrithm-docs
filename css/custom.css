@@ -152,41 +152,43 @@ body::after {
 /* ------------------------------------------------------
    FIX MOBILE DRAWER LOGO + TITLE (Material for MkDocs)
    Only applies on mobile (drawer mode)
------------------------------------------------------- */
-@media (max-width: 900px) {
+   /* ---------------- MOBILE DRAWER FIX ---------------- */
+   @media (max-width: 900px) {
 
-  /* Drawer header container */
-  .md-nav--primary .md-nav__title {
-      display: flex !important;
-      flex-direction: column !important;   /* Logo on top, text under */
-      align-items: center !important;
-      justify-content: center !important;
-      padding-top: 1rem !important;
-      padding-bottom: 1rem !important;
-      gap: 0.35rem !important;
-  }
+     /* Main fix: prevent the title area from sticking to the top */
+     .md-nav--primary .md-nav__title {
+         display: flex !important;
+         flex-direction: column !important;   /* Logo on top, text below */
+         align-items: center !important;      /* Center horizontally */
+         justify-content: center !important;  /* Center vertically */
+         padding: 1.2rem 0 !important;        /* Vertical spacing */
+         background-color: #b2e9f6 !important;/* Your chosen header color */
+         min-height: 140px !important;        /* Ensures enough space for logo + text */
+         box-sizing: border-box !important;
+     }
 
-  /* Logo image */
-  .md-nav--primary .md-nav__title img {
-      width: 80px !important;
-      height: auto !important;
-      margin: 0 !important;
-      padding: 0 !important;
-  }
+     /* Logo image styling */
+     .md-nav--primary .md-nav__title img {
+         width: 82px !important;              /* Logo size */
+         height: auto !important;             /* Maintain proportions */
+         display: block !important;
+         margin-bottom: 0.3rem !important;    /* Space under logo */
+     }
 
-  /* "OceanRithm" text */
-  .md-nav--primary .md-nav__title .md-nav__title-text {
-      font-size: 1.05rem !important;
-      font-weight: 700 !important;
-      margin: 0 !important;
-      padding: 0 !important;
-      line-height: 1.2 !important;
-      text-align: center !important;
-      display: block !important;
-  }
+     /* "OceanRithm" text styling */
+     .md-nav--primary .md-nav__title .md-nav__title-text {
+         font-size: 1.1rem !important;
+         font-weight: 700 !important;
+         line-height: 1.25 !important;
+         text-align: center !important;
+         margin: 0 !important;
+         padding: 0 !important;
+         display: block !important;
+     }
 
-  /* Remove default Material spacing that breaks layout */
-  .md-nav--primary .md-nav {
-      margin-top: 0 !important;
-  }
-}
+     /* Remove Material default spacing that pushes the logo up */
+     .md-nav--primary nav.md-nav {
+         margin-top: 0 !important;
+         padding-top: 0 !important;
+     }
+   }
