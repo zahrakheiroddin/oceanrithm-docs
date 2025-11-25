@@ -32,7 +32,7 @@
 
 /* Optional: adjust the logo size */
 .md-logo img {
-    height: 50px !important;
+    height: 80px !important;
 }
 
 /* Optional: make title vertically centered with logo */
@@ -139,3 +139,56 @@ body::after {
     margin-left: 0 !important;
     padding-left: 0 !important;
 }
+
+/* Mobile drawer header background color */
+.md-nav--primary .md-nav__title[for="__drawer"] {
+    background-color: #b2e9f6;
+}
+
+/* Optional: apply the same color to the entire primary sidebar */
+.md-sidebar--primary {
+    background-color: #b2e9f6;
+}
+/* ------------------------------------------------------
+   FIX MOBILE DRAWER LOGO + TITLE (Material for MkDocs)
+   Only applies on mobile (drawer mode)
+   /* ---------------- MOBILE DRAWER FIX ---------------- */
+   @media (max-width: 900px) {
+
+     /* Main fix: prevent the title area from sticking to the top */
+     .md-nav--primary .md-nav__title {
+         display: flex !important;
+         flex-direction: column !important;   /* Logo on top, text below */
+         align-items: center !important;      /* Center horizontally */
+         justify-content: center !important;  /* Center vertically */
+         padding: 1.2rem 0 !important;        /* Vertical spacing */
+         background-color: #b2e9f6 !important;/* Your chosen header color */
+         min-height: 140px !important;        /* Ensures enough space for logo + text */
+         box-sizing: border-box !important;
+     }
+
+     /* Logo image styling */
+     .md-nav--primary .md-nav__title img {
+         width: 82px !important;              /* Logo size */
+         height: auto !important;             /* Maintain proportions */
+         display: block !important;
+         margin-bottom: 0.3rem !important;    /* Space under logo */
+     }
+
+     /* "OceanRithm" text styling */
+     .md-nav--primary .md-nav__title .md-nav__title-text {
+         font-size: 1.1rem !important;
+         font-weight: 700 !important;
+         line-height: 1.25 !important;
+         text-align: center !important;
+         margin: 0 !important;
+         padding: 0 !important;
+         display: block !important;
+     }
+
+     /* Remove Material default spacing that pushes the logo up */
+     .md-nav--primary nav.md-nav {
+         margin-top: 0 !important;
+         padding-top: 0 !important;
+     }
+   }
