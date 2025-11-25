@@ -1,73 +1,65 @@
+# **OceanRithm – Konzeptionelles Forschungsportal**
 
-# **OceanRithm – Konzeptionelle Forschungsdokumentation**
+OceanRithm ist ein forschungsorientiertes Framework, das sich auf die Weiterentwicklung von sicherem Workflow Governance, Multi Tenant Abstraktionsmodellen und Orchestrierungstheorie in modernen DevSecOps Ökosystemen konzentriert.
 
-OceanRithm ist ein forschungsorientiertes Framework, das darauf abzielt, sichere Workflow-Governance, mandantenfähige Abstraktionsmodelle und hochrangige Orchestrierungskonzepte innerhalb moderner DevSecOps-Ökosysteme weiterzuentwickeln.
-Dieses Portal bietet einen strukturierten und wissenschaftlich ausgerichteten Überblick über die konzeptionellen Grundlagen, Designannahmen und Governance-Architektur von OceanRithm.
+Dieses Portal bietet einen akademisch ausgerichteten, hochstrukturierten Überblick über die konzeptionellen Grundlagen von OceanRithm — entwickelt für:
 
-Das hier präsentierte Material wurde speziell zusammengestellt für:
+- **Akademische Begutachtung**
+- **Peer Review und Publikationsprozesse**
+- **Wissenschaftliche Betreuung**
+- **Strategische Architekturbewertung**
 
-* **wissenschaftliche Evaluierung**,
-* **Peer-Review-Prozesse**,
-* **Forschungsbetreuung**,
-* **strategische architektonische Beurteilung**.
-
-OceanRithm konzentriert sich auf die zugrunde liegende Logik, Prinzipien und Governance-Muster sicherer CI/CD-Automatisierung — *nicht* auf operative oder deploymentspezifische Details.
-Alle Implementierungsebenen und infrastrukturbasierten Elemente werden bewusst abstrahiert, um konzeptionelle Klarheit und wissenschaftliche Integrität sicherzustellen.
+OceanRithm abstrahiert bewusst Implementierungsdetails, Deployment Aspekte und infrastrukturabhängige Mechanismen, um konzeptionelle Klarheit und wissenschaftliche Integrität zu bewahren.  
+Der Schwerpunkt liegt auf **Prinzipien, Governance Modellen, Identitätsgrenzen und sicherer Orchestrierungslogik**.
 
 ---
 
-## **Umfang dieser Dokumentation**
+## **Umfang der Dokumentation**
 
-Dieses Portal beschreibt die wesentlichen Komponenten des OceanRithm-Modells, darunter:
+### **Hintergrund & Motivation**  
+Eine strukturierte Analyse der Herausforderungen und Lücken in aktuellen sicheren Multi Tenant CI/CD Ökosystemen.  
+[Background](background.md)
 
-### 🔹 **Hintergrund & Motivation**
+### **Konzeptionelle Architektur**  
+Eine schichtenbasierte Darstellung von Identitätsgovernance, Token Grenzen und Abstraktionen des Orchestrierungs Lebenszyklus.  
+[Conceptual Architecture](conceptual-architecture.md)
 
-Eine übergeordnete Analyse bestehender Lücken in sicheren, mandantenfähigen CI/CD-Ökosystemen.
-➡️ *Mehr lesen:* [Hintergrund](background.md)
+### **Designprinzipien**  
+Sicherheitsinvarianten, theoretische Rahmenbedingungen und zentrale Architekturannahmen, die OceanRithm leiten.  
+[Design Principles](design-principles.md)
 
-### 🔹 **Konzeptionelle Architektur**
+### **Funktionale & Nichtfunktionale Perspektiven**  
+Eine konzeptionelle Übersicht über die primären funktionalen Rollen sowie nichtfunktionale Anforderungen des Modells.  
+[Functional Overview](functional-overview.md)  
+[Non-Functional Concepts](non-functional.md)
 
-Eine strukturierte Darstellung von Identity-Governance, Token-Grenzen, Orchestrierungsschichten und mandantenbasiertem Lifecycle-Management.
-➡️ *Zum Modell:* [Architektur](conceptual-architecture.md)
+### **Workflow Modelle**  
+Illustrative Diagramme zu Credential Flows, Grenzdefinitionen und Governance Pfaden.  
+[Workflow Diagrams](workflow-diagrams.md)
 
-### 🔹 **Designprinzipien**
+### **Use Cases**  
+Abstrakte Szenarien, die die Anwendung der OceanRithm Konzepte in Multi Tenant DevSecOps Umgebungen demonstrieren.  
+[Use Cases](use-cases.md)
 
-Zentrale Annahmen, Sicherheitsinvarianten und theoretische Rahmenbedingungen, die das OceanRithm-Framework prägen.
-➡️ *Details hier:* [Designprinzipien](design-principles.md)
-
-### 🔹 **Funktionale & Nicht-Funktionale Perspektiven**
-
-Ein konzeptioneller Überblick über die primären funktionalen Rollen sowie die nicht-funktionalen Rahmenbedingungen des Systems.
-➡️ [Funktionale Übersicht](functional-overview.md)
-➡️ [Nicht-funktionale Konzepte](non-functional.md)
-
-### 🔹 **Ablauf- und Workflow-Diagramme**
-
-Hochrangige Diagramme, die Berechtigungsflüsse, Rollenabgrenzungen und Governance-Wege veranschaulichen.
-➡️ *Diagramme ansehen:* [Ablaufdiagramme](workflow-diagrams.md)
-
-### 🔹 **Anwendungsfälle**
-
-Abstrahierte Nutzungsszenarien zur Unterstützung wissenschaftlicher Interpretation und architektonischer Bewertung.
-➡️ [Anwendungsfälle](use-cases.md)
-
-### 🔹 **Einschränkungen & Zukünftige Forschungsrichtungen**
-
-Identifizierte Grenzen des aktuellen konzeptionellen Umfangs sowie mögliche Erweiterungen.
-➡️ [Einschränkungen](limitations.md)
-➡️ [Zukünftige Arbeiten](future-work.md)
+### **Limitierungen & Zukünftige Forschung**  
+Dokumentierte konzeptionelle Grenzen und vorgeschlagene Erweiterungen für zukünftige Forschungsarbeiten.  
+[Limitations](limitations.md)  
+[Future Work](future-work.md)
 
 ---
 
 ## **Wichtiger Hinweis**
 
-> Diese Dokumentation ist **konzeptionell und forschungsorientiert**.
-> Sie enthält **keinen** Quellcode, keine Deployment-Logik, keine operativen Workflows, keine Zugangsdaten, Geheimnisse oder proprietären Implementierungsdetails.
+Diese Dokumentation ist **konzeptionell und forschungsorientiert**.  
+Sie enthält **keinen** Quellcode, keine Deployment Prozesse, keine operativen Abläufe und keine proprietären Implementierungsdetails.
 
-Das konzeptionelle Modell von OceanRithm ist geistiges Eigentum der
-**OceanRithm Solutions UG (haftungsbeschränkt)**
-und wird ausschließlich zu wissenschaftlichen, evaluativen und explorativen Zwecken bereitgestellt.
+Das konzeptionelle Framework von OceanRithm ist das geistige Eigentum von:
 
-Weitere kontextuelle Informationen zum Zweck dieses Portals finden Sie unter:
-➡️ [Über uns](about.md)
-➡️ [Haftungsausschluss](disclaimer.md)
+**OceanRithm Solutions UG (haftungsbeschränkt)**  
+Berlin, Deutschland  
+
+und wird ausschließlich für akademische, evaluative und forschungsbezogene Zwecke bereitgestellt.
+
+Weitere Zusatzinformationen:  
+[About](about.md)  
+[Disclaimer](disclaimer.md)

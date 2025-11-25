@@ -1,72 +1,65 @@
+# **OceanRithm – Conceptual Research Portal**
 
-# **OceanRithm – Conceptual Research Documentation**
+OceanRithm is a research driven framework focused on advancing secure workflow governance, multi tenant abstraction models, and orchestration theory within modern DevSecOps ecosystems.
 
-OceanRithm represents a research-driven framework dedicated to advancing secure workflow governance, multi-tenant abstraction models, and high-level orchestration theory within modern DevSecOps ecosystems.
-This portal provides a structured and academically aligned overview of OceanRithm’s conceptual foundations, design assumptions, and governance architecture.
+This portal presents an academically aligned, high level overview of the conceptual foundations behind OceanRithm — designed for:
 
-The material presented here is curated specifically for:
+- **Academic evaluation**
+- **Peer review and publication processes**
+- **Research supervision**
+- **Strategic architectural assessment**
 
-* **academic evaluation**,
-* **peer-review processes**,
-* **research supervision**,
-* **strategic architectural assessment**.
-
-OceanRithm focuses on the underlying logic, principles, and governance patterns of secure CI/CD automation—*not* operational or deployment-specific details. All implementation layers and infrastructure-bound elements are intentionally abstracted to preserve conceptual clarity and research integrity.
+OceanRithm deliberately abstracts away implementation, deployment, and infrastructure specific details to preserve conceptual clarity and research integrity.  
+The emphasis is on **principles, governance, identity boundaries, and secure orchestration logic**.
 
 ---
 
-## **Scope of This Documentation**
+## **Scope of the Documentation**
 
-This portal outlines the essential components of the OceanRithm model, including:
+### **Background & Motivation**  
+A structured exploration of the challenges and gaps in current secure multi tenant CI/CD ecosystems.  
+[Background](background.md)
 
-### 🔹 **Background & Motivation**
+### **Conceptual Architecture**  
+A layered representation of identity governance, token boundaries, and orchestration lifecycle abstractions.  
+[Conceptual Architecture](conceptual-architecture.md)
 
-A high-level analysis of current gaps in secure multi-tenant CI/CD ecosystems.
-➡️ *Read more:* [Background](background.md)
+### **Design Principles**  
+Security invariants, theoretical constraints, and core architectural assumptions guiding OceanRithm.  
+[Design Principles](design-principles.md)
 
-### 🔹 **Conceptual Architecture**
+### **Functional & Non Functional Perspectives**  
+High level functional roles and conceptual non functional constraints shaping the model.  
+[Functional Overview](functional-overview.md)  
+[Non-Functional Concepts](non-functional.md)
 
-A structured representation of identity governance, token boundaries, orchestration layers, and multi-tenant lifecycle management.
-➡️ *Explore the model:* [Architecture](conceptual-architecture.md)
+### **Workflow Level Models**  
+Illustrative credential flow diagrams, boundary definitions, and governance pathways.  
+[Workflow Diagrams](workflow-diagrams.md)
 
-### 🔹 **Design Principles**
+### **Use Cases**  
+Abstract scenarios demonstrating how OceanRithm concepts apply to multi tenant DevSecOps environments.  
+[Use Cases](use-cases.md)
 
-Core assumptions, security invariants, and theoretical constraints that guide the OceanRithm framework.
-➡️ *Details here:* [Design Principles](design-principles.md)
-
-### 🔹 **Functional & Non-Functional Perspectives**
-
-A conceptual overview of primary functional roles and the non-functional constraints governing the system.
-➡️ [Functional Overview](functional-overview.md)
-➡️ [Non-Functional Concepts](non-functional.md)
-
-### 🔹 **Workflow-Level Diagrams**
-
-High-level diagrams that illustrate credential flows, role boundaries, and governance pathways.
-➡️ *View diagrams:* [Workflow Diagrams](workflow-diagrams.md)
-
-### 🔹 **Use Cases**
-
-Abstracted usage scenarios designed to support academic interpretation and architectural evaluation.
-➡️ [Use Cases](use-cases.md)
-
-### 🔹 **Limitations & Future Research Directions**
-
-Identified boundaries of the current conceptual scope and potential extensions.
-➡️ [Limitations](limitations.md)
-➡️ [Future Work](future-work.md)
+### **Limitations & Future Research**  
+Documented conceptual boundaries and proposed research extensions.  
+[Limitations](limitations.md)  
+[Future Work](future-work.md)
 
 ---
 
 ## **Important Notice**
 
-> This documentation is **conceptual and research-focused**.
-> It does **not** disclose source code, deployment logic, operational workflows, secrets, credentials, or any proprietary implementation details.
+This documentation is **conceptual and research focused**.  
+It does **not** include source code, deployment procedures, operational workflows, or proprietary implementation details.
 
-The OceanRithm conceptual model is the intellectual work of
-**OceanRithm Solutions UG (haftungsbeschränkt)**
-and is presented strictly for academic, evaluative, and exploratory purposes.
+The OceanRithm conceptual framework is the intellectual work of:
 
-For additional context or meta-information about the portal’s purpose, see:
-➡️ [About](about.md)
-➡️ [Disclaimer](disclaimer.md)
+**OceanRithm Solutions UG (haftungsbeschränkt)**  
+Berlin, Germany  
+
+and is provided exclusively for academic, evaluative, and exploratory purposes.
+
+For additional meta-information:  
+[About](about.md)  
+[Disclaimer](disclaimer.md)
