@@ -149,44 +149,44 @@ body::after {
 .md-sidebar--primary {
     background-color: #b2e9f6;
 }
-/* --- Fix mobile drawer logo layout --- */
+/* ------------------------------------------------------
+   FIX MOBILE DRAWER LOGO + TITLE (Material for MkDocs)
+   Only applies on mobile (drawer mode)
+------------------------------------------------------ */
+@media (max-width: 900px) {
 
-/* Wrapper of the drawer brand area */
-.md-nav--primary .md-nav__title {
-    display: flex;
-    flex-direction: column;        /* Put logo on top, text below */
-    align-items: center;           /* Center both */
-    justify-content: center;
-    padding: 1rem 0 1.2rem;        /* Extra spacing */
-}
+  /* Drawer header container */
+  .md-nav--primary .md-nav__title {
+      display: flex !important;
+      flex-direction: column !important;   /* Logo on top, text under */
+      align-items: center !important;
+      justify-content: center !important;
+      padding-top: 1rem !important;
+      padding-bottom: 1rem !important;
+      gap: 0.35rem !important;
+  }
 
-/* Logo image inside drawer */
-.md-nav--primary .md-nav__title img {
-    width: 90px !important;        /* Bigger clean size */
-    height: auto !important;
-    margin-bottom: 0.4rem;         /* Space below logo */
-}
+  /* Logo image */
+  .md-nav--primary .md-nav__title img {
+      width: 80px !important;
+      height: auto !important;
+      margin: 0 !important;
+      padding: 0 !important;
+  }
 
-/* OceanRithm text in drawer */
-.md-nav--primary .md-nav__title .md-nav__title-text {
-    font-size: 1.05rem;
-    font-weight: 700;
-    color: #003049;                /* Darker for clarity */
-    margin-top: 0.2rem;
-}
+  /* "OceanRithm" text */
+  .md-nav--primary .md-nav__title .md-nav__title-text {
+      font-size: 1.05rem !important;
+      font-weight: 700 !important;
+      margin: 0 !important;
+      padding: 0 !important;
+      line-height: 1.2 !important;
+      text-align: center !important;
+      display: block !important;
+  }
 
-/* Remove default theme spacing that caused overlap */
-.md-nav--primary .md-nav {
-    margin-top: 0 !important;
-}
-/* Make top-level active title (OceanRithm) white in sidebar */
-.md-nav__item.md-nav__item--active > .md-nav__link {
-    background-color: #ffffff !important;
-    color: #000000 !important;  /* optional: keep text black */
-}
-
-/* Remove the blue highlight behind the section title */
-.md-nav__title {
-    background-color: #ffffff !important;
-    color: #000000 !important;
+  /* Remove default Material spacing that breaks layout */
+  .md-nav--primary .md-nav {
+      margin-top: 0 !important;
+  }
 }
