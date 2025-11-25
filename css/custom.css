@@ -156,44 +156,7 @@ body::after {
       REMOVE Drawer Title Label COMPLETELY (100% DELETE)
    ------------------------------------------------------ */
 
-   @media (max-width: 900px) {
 
-     /* Remove entire label that contains the old OceanRithm text */
-     label.md-nav__title {
-         display: none !important;
-         visibility: hidden !important;
-         opacity: 0 !important;
-         height: 0 !important;
-         margin: 0 !important;
-         padding: 0 !important;
-     }
-
-     /* Rebuild header with our logo + text */
-     .md-nav--primary .md-nav__title {
-         display: flex !important;
-         flex-direction: column !important;
-         align-items: center !important;
-         justify-content: center !important;
-         padding: 1.4rem 0 !important;
-         background-color: #b2e9f6 !important;
-     }
-
-     .md-nav--primary .md-nav__title img {
-         width: 95px !important;
-         height: auto !important;
-         display: block !important;
-     }
-
-     /* New clean title */
-     .md-nav--primary .md-nav__title::after {
-         content: "OceanRithm";
-         font-size: 1.2rem;
-         font-weight: 700;
-         color: #003049;
-         margin-top: 0.4rem;
-         display: block !important;
-     }
-   }
    /* --------- MOBILE TOP NAV — Apple Style Logo --------- */
    @media (max-width: 900px) {
 
