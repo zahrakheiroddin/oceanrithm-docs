@@ -2,9 +2,13 @@
    1) CLEAN WHITE HEADER + FIX LOGO + TITLE POSITIONS
    ===================================================== */
 
-.md-header {
-    background: #ffffff !important;         /* pure white header */
-    box-shadow: 0 1px 4px rgba(0,0,0,0.08); /* light modern shadow */
+/* Kill ALL gradients/blue for the header in every state */
+.md-header,
+.md-header--shadow,
+.md-header[data-md-state="shadow"] {
+    background-color: #ffffff !important;   /* pure white header */
+    background-image: none !important;      /* remove any gradient/image */
+    box-shadow: 0 1px 4px rgba(0,0,0,0.08) !important;
 }
 
 /* Header inner area alignment */
@@ -20,9 +24,9 @@
     padding: 0 !important;
 }
 
-/* Logo image size */
+/* Logo image size (desktop) */
 .md-logo img {
-    height: 44px !important;                /* perfect Apple-style size */
+    height: 44px !important;
     width: auto !important;
     display: block !important;
 }
@@ -117,15 +121,15 @@ body::after {
 }
 
 /* =====================================================
-   5) MOBILE DRAWER FIX – LOGO + TITLE CLEAR
+   5) MOBILE DRAWER FIX – WHITE + NO OVERLAP
    ===================================================== */
 
 @media (max-width: 900px) {
 
-    /* Drawer header background */
+    /* Drawer header background – FULL WHITE */
     .md-nav--primary .md-nav__title[for="__drawer"] {
-        background-color: #b2e9f6 !important;
-        height: 140px !important; /* clean space for logo + text */
+        background-color: #ffffff !important;   /* no more blue */
+        height: 140px !important;
         display: flex !important;
         flex-direction: column !important;
         align-items: center !important;
@@ -140,18 +144,14 @@ body::after {
         margin-bottom: 6px !important;
     }
 
-    /* Drawer text */
-    .md-nav--primary .md-nav__title .md-nav__title-text {
-        font-size: 1.1rem !important;
-        font-weight: 700 !important;
-        color: #000 !important;
-        text-align: center !important;
+    /* HIDE the text "OceanRithm" behind the logo in drawer */
+    .md-nav--primary .md-nav__title[for="__drawer"] .md-ellipsis {
+        display: none !important;
     }
 
-    /* Remove Material's weird spacing */
+    /* Remove Material's default spacing */
     .md-nav--primary nav.md-nav {
         margin-top: 0 !important;
         padding-top: 0 !important;
     }
-
 }
