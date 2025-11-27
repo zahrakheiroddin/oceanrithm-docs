@@ -1,99 +1,92 @@
-/* -------------------------
-   1) HEADER GRADIENT
-   ------------------------- */
-/* Apply OceanRithm gradient to the top navigation bar */
+/* =====================================================
+   1) CLEAN WHITE HEADER + FIX LOGO + TITLE POSITIONS
+   ===================================================== */
+
 .md-header {
-    background: linear-gradient(to right, #FCFFFF, #45C7E8) !important;
+    background: #ffffff !important;         /* pure white header */
+    box-shadow: 0 1px 4px rgba(0,0,0,0.08); /* light modern shadow */
 }
 
-/* Ensure header text and buttons remain readable */
-.md-header__title,
-.md-header a,
-.md-header__button {
-    color: black !important;
-}
-
-/* Force logo + title to stick tightly on the left */
+/* Header inner area alignment */
 .md-header__inner {
     display: flex !important;
     align-items: center !important;
+    gap: 6px !important;                    /* spacing between logo + text */
 }
 
-/* Remove default spacing between logo and title */
+/* Logo container */
 .md-header__button.md-logo {
     margin: 0 !important;
     padding: 0 !important;
 }
 
-.md-header__title {
-    margin-left: 6px !important;  /* reduce distance between logo & text */
-    padding: 0 !important;
-}
-
-/* Optional: adjust the logo size */
+/* Logo image size */
 .md-logo img {
-    height: 80px !important;
+    height: 44px !important;                /* perfect Apple-style size */
+    width: auto !important;
+    display: block !important;
 }
 
-/* Optional: make title vertically centered with logo */
-.md-header__topic {
+/* Title next to logo */
+.md-header__title {
+    margin: 0 !important;
+    padding: 0 !important;
     display: flex !important;
     align-items: center !important;
-    font-size: 1.35rem !important;   /* increase title size */
+    font-size: 1.25rem !important;
     font-weight: 600 !important;
+    color: #000 !important;                 /* readable on white */
 }
 
-/* -------------------------
-   2) MANTA BACKGROUND – STABLE VERSION
-   (Safe version: does not break layout)
-   ------------------------- */
+/* =====================================================
+   2) WATERMARK MANTA (BACKGROUND) – FIXED & CLEAN
+   ===================================================== */
 
-/* Set a clean white base background and allow positioning */
 body {
     background: #ffffff !important;
-    position: relative;
+    position: relative !important;
 }
 
-/* Add a manta ray watermark across the entire page */
 body::after {
     content: "";
     position: fixed;
     inset: 0;
     background-image: url("/images/manta.png");
     background-repeat: no-repeat;
-    background-position: center 20%;   /* Adjust vertical position if needed */
-    background-size: 45%;              /* Scale of manta image */
-    opacity: 0.08;                     /* Image transparency */
-    filter: grayscale(100%);           /* Desaturate for subtle look */
-    pointer-events: none;              /* Make sure it doesn’t block clicks */
-    z-index: -1;                       /* Keep the image behind all content */
+    background-position: center 22%;
+    background-size: 40%;
+    opacity: 0.07;
+    filter: grayscale(100%);
+    pointer-events: none;
+    z-index: -1;
 }
-/* Hide default Material footer text */
-.md-footer {
-    font-size: 0 !important;
-}
-/* Hide the "Made with Material for MkDocs" footer */
+
+/* =====================================================
+   3) CLEAN FOOTER
+   ===================================================== */
+
+.md-footer,
 .md-footer-meta,
-.md-footer__inner,
-.md-footer .md-footer-meta,
-.md-footer .md-footer__inner {
+.md-footer__inner {
     display: none !important;
 }
 
-/* Custom footer text: OceanRithm Solutions */
-/* Custom footer text: OceanRithm Solutions */
 .md-footer::after {
     content: "© 2025 OceanRithm Solutions UG (haftungsbeschränkt) – Research Documentation Portal";
     display: block;
     text-align: center;
-    padding: 8px 0;
+    padding: 10px 0;
     font-size: 0.85rem;
-    color: #ffffff;      /* white text */
-    opacity: 0.9;
+    color: #000;
+    opacity: 0.75;
 }
-/* Language switcher in header */
+
+/* =====================================================
+   4) LANGUAGE SWITCHER (HEADER)
+   ===================================================== */
+
 .or-lang-switcher {
-    margin-left: auto;
+    margin-left: auto !important;
     display: flex;
     align-items: center;
     gap: 6px;
@@ -106,8 +99,8 @@ body::after {
     cursor: pointer;
     padding: 2px 6px;
     font-weight: 500;
-    opacity: 0.7;
-    border-radius: 999px; /* pill shape */
+    opacity: 0.6;
+    border-radius: 999px;
 }
 
 .or-lang-btn:hover {
@@ -116,44 +109,49 @@ body::after {
 
 .or-lang-active {
     opacity: 1;
-    text-decoration: none;
-    outline: 1px solid rgba(255, 255, 255, 0.6);
-    /* if your header is light, you can change this to a darker color later */
+    outline: 1px solid rgba(0, 0, 0, 0.4);
 }
 
 .or-lang-sep {
     opacity: 0.4;
 }
 
-/* Move logo and site name tightly to the left */
-.md-header__title {
-    margin-left: 0 !important;
-    padding-left: 0 !important;
-    display: flex;
-    align-items: center;
-    gap: 4px;  /* distance between logo and text */
-}
+/* =====================================================
+   5) MOBILE DRAWER FIX – LOGO + TITLE CLEAR
+   ===================================================== */
 
-/* Reduce extra spacing around the logo */
-.md-header__button.md-logo {
-    margin-left: 0 !important;
-    padding-left: 0 !important;
-}
+@media (max-width: 900px) {
 
-/* Mobile drawer header background color */
-.md-nav--primary .md-nav__title[for="__drawer"] {
-    background-color: #b2e9f6;
-}
+    /* Drawer header background */
+    .md-nav--primary .md-nav__title[for="__drawer"] {
+        background-color: #b2e9f6 !important;
+        height: 140px !important; /* clean space for logo + text */
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        justify-content: center !important;
+        padding: 1.2rem 0 !important;
+    }
 
-/* Optional: apply the same color to the entire primary sidebar */
-.md-sidebar--primary {
-    background-color: #b2e9f6;
-}
-/* ------------------------------------------------------
-   FIX MOBILE DRAWER LOGO + TITLE (Material for MkDocs)
-   Only applies on mobile (drawer mode)
-   /* ------------------------------------------------------
-      REMOVE Drawer Title Label COMPLETELY (100% DELETE)
-   ------------------------------------------------------ */
+    /* Drawer logo */
+    .md-nav--primary .md-nav__title img {
+        width: 82px !important;
+        height: auto !important;
+        margin-bottom: 6px !important;
+    }
 
-  
+    /* Drawer text */
+    .md-nav--primary .md-nav__title .md-nav__title-text {
+        font-size: 1.1rem !important;
+        font-weight: 700 !important;
+        color: #000 !important;
+        text-align: center !important;
+    }
+
+    /* Remove Material's weird spacing */
+    .md-nav--primary nav.md-nav {
+        margin-top: 0 !important;
+        padding-top: 0 !important;
+    }
+
+}
