@@ -15,7 +15,7 @@
 .md-header__inner {
     display: flex !important;
     align-items: center !important;
-    gap: 6px !important;                    /* spacing between logo + text */
+    gap: 6px !important;                    /* spacing between children */
 }
 
 /* Logo container */
@@ -40,6 +40,24 @@
     font-size: 1.25rem !important;
     font-weight: 600 !important;
     color: #000 !important;                 /* readable on white */
+}
+
+/* =====================================================
+   1.1) HAMBURGER MENU ICON – MAKE IT VISIBLE
+   ===================================================== */
+
+/* Force hamburger (three-line) menu icon to be black on white header */
+.md-header__button.md-icon {
+    color: #000 !important;
+    fill: #000 !important;
+    padding: 8px !important;                /* clickable area */
+}
+
+/* Normalize hamburger SVG size */
+.md-header__button.md-icon svg {
+    width: 24px !important;
+    height: 24px !important;
+    stroke-width: 2px !important;
 }
 
 /* =====================================================
