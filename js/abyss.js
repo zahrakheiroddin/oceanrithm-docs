@@ -147,7 +147,7 @@
     ].join("\n")
   );
   var partU = uniforms(partP, ["uT", "uRise", "uAspect", "uScroll", "uScale", "uMouse01", "uGlyphs", "uLight"]);
-  var counts = small ? [260, 70, 34] : [620, 150, 80];
+  var counts = small ? [190, 55, 26] : [620, 150, 80];
   var pdata = [], pkind = [];
   counts.forEach(function (c, k) {
     for (var i = 0; i < c; i++) {
@@ -191,7 +191,7 @@
   var netLocS = gl.getAttribLocation(netP, "aS");
   var netBuf = gl.createBuffer();
 
-  var NODES = small ? 42 : 86;
+  var NODES = small ? 34 : 86;
   var nodes = [];
   for (var i = 0; i < NODES; i++) {
     nodes.push({
@@ -216,10 +216,15 @@
   var rise = 0, dive = 0, scroll01 = 0, depthTarget = 0, depthShown = 0, light = 0;
   var t0 = performance.now(), last = t0, raf = 0;
 
+  var lastW = 0;
   function resize() {
+    // phones: the address bar changes the height while scrolling; ignore that,
+    // otherwise the canvas would be rebuilt on every scroll (jank)
+    if (small && lastW === window.innerWidth && canvas.width) return;
+    lastW = window.innerWidth;
     var dpr = small ? 1 : Math.min(window.devicePixelRatio || 1, 1.5);
     W = Math.round(window.innerWidth * dpr);
-    H = Math.round(window.innerHeight * dpr);
+    H = Math.round((small ? Math.max(window.innerHeight, screen.height || 0) : window.innerHeight) * dpr);
     canvas.width = W;
     canvas.height = H;
     aspect = W / H;
@@ -271,7 +276,14 @@
   }
   var baseDepth = pageDepth();
 
+  var lastY = window.scrollY;
   function onScroll() {
+    if (small) {
+      var y = window.scrollY;
+      hud.classList.toggle("or-hud--away", y > lastY + 4 && y > 80);
+      if (y < lastY - 4) hud.classList.remove("or-hud--away");
+      lastY = y;
+    }
     var max = Math.max(1, document.documentElement.scrollHeight - window.innerHeight);
     scroll01 = Math.min(1, window.scrollY / max);
   }
@@ -363,9 +375,13 @@
   /* ---------------- render loop ---------------- */
   var netData = new Float32Array(4 * 4000);
 
+  var lastDraw = 0;
   function frame(now) {
     raf = 0;
     if (document.hidden) return;
+    // phones: 30 fps is plenty for slow water and saves battery
+    if (small && !reduce && now - lastDraw < 31) { raf = requestAnimationFrame(frame); return; }
+    lastDraw = now;
     var T = (now - t0) / 1000, dt = Math.min(0.05, (now - last) / 1000);
     last = now;
 

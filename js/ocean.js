@@ -359,7 +359,7 @@
       hero.removeEventListener("pointerleave", onLeave);
     };
     heroCleanup = stop;
-    if (reduceMotion) return;
+    if (reduceMotion || window.innerWidth < 700) return;
 
     var img = hero.querySelector(".or-hero__manta");
     loadManta(function (tex) {

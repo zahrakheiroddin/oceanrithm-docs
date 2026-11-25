@@ -694,15 +694,12 @@
 }
 
 /* ---------- 3D page entrance ---------- */
-.md-main__inner {
-  perspective: 1400px;
-}
 .md-content.or-enter {
   animation: or-enter 0.85s cubic-bezier(0.2, 0.75, 0.2, 1) both;
   transform-origin: 50% 0;
 }
 @keyframes or-enter {
-  0%   { opacity: 0; transform: translate3d(0, 50px, -160px) rotateX(9deg); filter: blur(4px); }
+  0%   { opacity: 0; transform: perspective(1400px) translate3d(0, 50px, -160px) rotateX(9deg); filter: blur(4px); }
   100% { opacity: 1; transform: none; filter: none; }
 }
 
@@ -855,19 +852,17 @@
   inset: 0;
   width: 100vw;
   height: 100vh;
-  z-index: 0;
+  z-index: -1; /* behind everything, without trapping the menu drawer in a stacking context */
   pointer-events: none;
 }
-html.or-abyss-on,
-html.or-abyss-on body {
+html.or-abyss-on {
   background: #031320;
 }
-html.or-abyss-on body[data-md-color-scheme="default"] {
+html.or-abyss-on:has(body[data-md-color-scheme="default"]) {
   background: #8fd3e3;
 }
+html.or-abyss-on body,
 html.or-abyss-on .md-container {
-  position: relative;
-  z-index: 1;
   background: transparent;
 }
 html.or-abyss-on .md-main {
@@ -1182,4 +1177,68 @@ html.or-abyss-on .md-typeset .or-notice {
   backdrop-filter: blur(12px);
   border-color: var(--or-glass-line);
   border-left-color: rgba(79, 209, 219, 0.7);
+}
+
+/* =========================================================
+   15) Phones and tablets
+   ========================================================= */
+/* always dark on touch devices: no light/dark switch there */
+html.or-mobile [data-md-component="palette"] {
+  display: none;
+}
+
+/* the ocean canvas keeps the full screen height while the address bar moves */
+@media screen and (max-width: 59.9844em) {
+  .or-abyss { height: 100vh; height: 100lvh; }
+}
+
+/* menu drawer: solid deep water so the links are easy to read */
+@media screen and (max-width: 76.2344em) {
+  html.or-abyss-on .md-sidebar--primary {
+    background: #061b2b;
+  }
+  html.or-abyss-on .md-sidebar--primary .md-sidebar__scrollwrap {
+    background: transparent;
+  }
+  html.or-abyss-on .md-nav--primary .md-nav__link {
+    color: #e2f4f8;
+  }
+  html.or-abyss-on .md-nav--primary .md-nav__link--active {
+    color: var(--or-glow);
+  }
+  html.or-abyss-on .md-nav--primary .md-nav__title {
+    background: #0b2a45;
+    color: #fff;
+  }
+}
+
+/* phones: small depth pill that slides away while reading */
+@media screen and (max-width: 44.9844em) {
+  .or-hud {
+    left: 0.6rem;
+    right: auto;
+    bottom: 0.6rem;
+    gap: 0.45rem;
+    padding: 0.3rem 0.45rem 0.3rem 0.55rem;
+    border-radius: 999px;
+    opacity: 0.9;
+    transition: transform 0.35s ease, opacity 0.35s ease;
+  }
+  .or-hud__gauge { height: 1.4rem; width: 3px; }
+  .or-hud__label { display: none; }
+  .or-hud__read { min-width: 0; }
+  .or-hud__val { font-size: 0.7rem; }
+  .or-hud__sound { padding: 0.3rem 0.45rem; }
+  .or-hud--away {
+    transform: translateY(160%);
+    opacity: 0;
+  }
+  html.or-abyss-on .md-content__inner { margin-bottom: 3.2rem; }
+}
+
+/* depth gauge steps aside while the menu or search is open */
+#__drawer:checked ~ .or-hud,
+#__search:checked ~ .or-hud {
+  opacity: 0;
+  pointer-events: none;
 }
