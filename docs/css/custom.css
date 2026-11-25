@@ -1672,3 +1672,64 @@ html.or-abyss-on .or-hero {
     z-index: 1;
   }
 }
+
+/* =========================================================
+   22) Day mode: cards and reading panels as clear glossy glass,
+   like the night look, on every device and every page.
+   ========================================================= */
+html.or-abyss-on body[data-md-color-scheme="default"] .md-typeset .grid.cards > ul > li,
+html.or-abyss-on body[data-md-color-scheme="default"] .md-content__inner:not(:has(.or-hero)) {
+  --or-gloss-a: rgba(255, 255, 255, 0.5);
+  --or-gloss-b: rgba(255, 255, 255, 0.14);
+  -webkit-backdrop-filter: blur(18px) saturate(140%) brightness(1.05);
+  backdrop-filter: blur(18px) saturate(140%) brightness(1.05);
+}
+html.or-abyss-on body[data-md-color-scheme="default"] .md-typeset .grid.cards > ul > li {
+  --fill: rgba(255, 255, 255, 0.16);
+  background:
+    linear-gradient(to bottom right, transparent calc(50% - 1px), var(--or-line) calc(50% - 1px), var(--or-line) calc(50% + 0.5px), transparent calc(50% + 0.5px)) left top / var(--c) var(--c) no-repeat border-box,
+    linear-gradient(to bottom right, transparent calc(50% - 1px), var(--or-line) calc(50% - 1px), var(--or-line) calc(50% + 0.5px), transparent calc(50% + 0.5px)) right bottom / var(--c) var(--c) no-repeat border-box,
+    linear-gradient(var(--or-line), var(--or-line)) right 18px top 10px / 28px 2px no-repeat padding-box,
+    linear-gradient(var(--or-line), var(--or-line)) right 50px top 10px / 6px 2px no-repeat padding-box,
+    linear-gradient(rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0)) left top / 100% 1px no-repeat padding-box,
+    linear-gradient(158deg, var(--or-gloss-a) 0%, var(--or-gloss-b) 34%, rgba(255, 255, 255, 0.03) 34.5%, rgba(255, 255, 255, 0) 70%, rgba(255, 255, 255, 0.1) 100%) padding-box,
+    repeating-linear-gradient(0deg, rgba(255, 255, 255, 0.06) 0 1px, transparent 1px 4px) padding-box,
+    radial-gradient(120% 90% at 0% 0%, rgba(79, 209, 219, 0.16), transparent 55%) padding-box,
+    linear-gradient(var(--fill), var(--fill)) padding-box !important;
+}
+html.or-abyss-on body[data-md-color-scheme="default"] .md-content__inner:not(:has(.or-hero)) {
+  --fill: rgba(255, 255, 255, 0.3);
+  --or-gloss-a: rgba(255, 255, 255, 0.42);
+  background:
+    linear-gradient(to bottom right, transparent calc(50% - 1px), var(--or-line) calc(50% - 1px), var(--or-line) calc(50% + 0.5px), transparent calc(50% + 0.5px)) left top / var(--c) var(--c) no-repeat border-box,
+    linear-gradient(to bottom right, transparent calc(50% - 1px), var(--or-line) calc(50% - 1px), var(--or-line) calc(50% + 0.5px), transparent calc(50% + 0.5px)) right bottom / var(--c) var(--c) no-repeat border-box,
+    linear-gradient(var(--or-line), var(--or-line)) right 22px top 12px / 40px 2px no-repeat padding-box,
+    linear-gradient(var(--or-line), var(--or-line)) right 68px top 12px / 8px 2px no-repeat padding-box,
+    linear-gradient(rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0)) left top / 100% 1px no-repeat padding-box,
+    linear-gradient(168deg, var(--or-gloss-a) 0%, var(--or-gloss-b) 260px, rgba(255, 255, 255, 0) 900px) padding-box,
+    radial-gradient(90% 600px at 0% 0%, rgba(79, 209, 219, 0.14), transparent 60%) padding-box,
+    linear-gradient(var(--fill), var(--fill)) padding-box !important;
+}
+html.or-abyss-on body[data-md-color-scheme="default"] .md-typeset .grid.cards > ul > li:hover {
+  --fill: rgba(255, 255, 255, 0.24);
+}
+/* phones: a touch more body behind the text */
+@media screen and (max-width: 44.9844em) {
+  html.or-abyss-on body[data-md-color-scheme="default"] .md-typeset .grid.cards > ul > li { --fill: rgba(255, 255, 255, 0.24); }
+  html.or-abyss-on body[data-md-color-scheme="default"] .md-content__inner:not(:has(.or-hero)) { --fill: rgba(255, 255, 255, 0.4); }
+}
+/* links stay clear on the brighter glass */
+html.or-abyss-on body[data-md-color-scheme="default"] .md-typeset .grid.cards > ul > li a {
+  color: #0a5687;
+}
+/* desktop side menus: same clear glass in day mode */
+@media screen and (min-width: 76.25em) {
+  html.or-abyss-on body[data-md-color-scheme="default"] .md-sidebar__scrollwrap {
+    background:
+      linear-gradient(rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0)) left top / 100% 1px no-repeat,
+      linear-gradient(165deg, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0.12) 220px, rgba(255, 255, 255, 0) 600px),
+      rgba(255, 255, 255, 0.2);
+    -webkit-backdrop-filter: blur(18px) saturate(140%) brightness(1.05);
+    backdrop-filter: blur(18px) saturate(140%) brightness(1.05);
+  }
+}
