@@ -47,7 +47,7 @@
       
     
     
-      <link rel="stylesheet" href="../../css/custom.css?v=11">
+      <link rel="stylesheet" href="../../css/custom.css?v=12">
     
     <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
@@ -86,13 +86,7 @@
       d.classList.add("or-js");
       try {
         var mob = window.matchMedia && window.matchMedia("(max-width: 59.9844em), (pointer: coarse)").matches;
-        if (mob) {
-          d.classList.add("or-mobile");
-          for (var i = localStorage.length - 1; i >= 0; i--) {
-            var k = localStorage.key(i);
-            if (k && k.indexOf("__palette") !== -1) localStorage.removeItem(k);
-          }
-        }
+        if (mob) d.classList.add("or-mobile");
       } catch (e) {}
       try {
         var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -1562,11 +1556,11 @@ All technical implementation details of OceanRithm are intentionally omitted to 
     
       <script src="../../assets/javascripts/bundle.e71a0d61.min.js"></script>
       
-        <script src="../../js/lang-switcher.js?v=11"></script>
+        <script src="../../js/lang-switcher.js?v=12"></script>
       
-        <script src="../../js/ocean.js?v=11"></script>
+        <script src="../../js/ocean.js?v=12"></script>
       
-        <script src="../../js/abyss.js?v=11"></script>
+        <script src="../../js/abyss.js?v=12"></script>
       
     
   </body>
