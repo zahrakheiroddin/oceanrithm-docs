@@ -1,6 +1,4 @@
 ---
-title: Home
-description: OceanRithm is a conceptual research portal on secure workflow governance, multi tenant abstraction and orchestration theory in DevSecOps.
 hide:
   - navigation
   - toc
@@ -8,31 +6,29 @@ hide:
 
 <div class="or-hero" markdown>
 <div class="or-hero__content" markdown>
-<span class="or-hero__eyebrow">Conceptual Research Portal</span>
 
-<h1 class="or-hero__title">Secure orchestration, explained from first principles</h1>
+<h1 class="or-hero__title">OceanRithm – Conceptual Research Portal</h1>
 
-<p class="or-hero__lead">OceanRithm is a research driven framework for secure workflow governance, multi tenant abstraction models and orchestration theory in modern DevSecOps ecosystems.</p>
+<p class="or-hero__lead">OceanRithm is a research driven framework focused on advancing secure workflow governance, multi tenant abstraction models, and orchestration theory within modern DevSecOps ecosystems.</p>
 
-[Explore the architecture](conceptual-architecture.md){ .md-button .md-button--primary }
-[Read the background](background.md){ .md-button }
 </div>
 
 ![](../images/manta.png){ .or-hero__manta }
 </div>
 
-## Who this portal is for
+This portal presents an academically aligned, high level overview of the conceptual foundations behind OceanRithm designed for:
 
 <div class="or-chips" markdown>
 <span class="or-chip">:material-school-outline: Academic evaluation</span>
-<span class="or-chip">:material-file-document-check-outline: Peer review and publication</span>
+<span class="or-chip">:material-file-document-check-outline: Peer review and publication processes</span>
 <span class="or-chip">:material-account-supervisor-outline: Research supervision</span>
-<span class="or-chip">:material-strategy: Architectural assessment</span>
+<span class="or-chip">:material-strategy: Strategic architectural assessment</span>
 </div>
 
-OceanRithm deliberately leaves out implementation, deployment and infrastructure details to keep the concepts clear and the research honest. The focus stays on **principles, governance, identity boundaries and secure orchestration logic**.
+OceanRithm deliberately abstracts away implementation, deployment, and infrastructure specific details to preserve conceptual clarity and research integrity.  
+The emphasis is on **principles, governance, identity boundaries, and secure orchestration logic**.
 
-## Scope of the documentation
+## **Scope of the Documentation**
 
 <div class="grid cards" markdown>
 
@@ -40,7 +36,7 @@ OceanRithm deliberately leaves out implementation, deployment and infrastructure
 
     ---
 
-    The challenges and gaps in today's secure multi tenant CI/CD ecosystems.
+    A structured exploration of the challenges and gaps in current secure multi tenant CI/CD ecosystems.
 
     [:octicons-arrow-right-24: Background](background.md)
 
@@ -48,32 +44,32 @@ OceanRithm deliberately leaves out implementation, deployment and infrastructure
 
     ---
 
-    A layered view of identity governance, token boundaries and the orchestration lifecycle.
+    A layered representation of identity governance, token boundaries, and orchestration lifecycle abstractions.
 
-    [:octicons-arrow-right-24: Architecture](conceptual-architecture.md)
+    [:octicons-arrow-right-24: Conceptual Architecture](conceptual-architecture.md)
 
 -   :material-shield-check-outline:{ .lg .middle } **Design Principles**
 
     ---
 
-    Security invariants, theoretical constraints and the core assumptions behind the model.
+    Security invariants, theoretical constraints, and core architectural assumptions guiding OceanRithm.
 
     [:octicons-arrow-right-24: Design Principles](design-principles.md)
 
--   :material-puzzle-outline:{ .lg .middle } **Functional & Non Functional**
+-   :material-puzzle-outline:{ .lg .middle } **Functional & Non Functional Perspectives**
 
     ---
 
-    The functional roles in the model and the conceptual constraints that shape it.
+    High level functional roles and conceptual non functional constraints shaping the model.
 
     [:octicons-arrow-right-24: Functional Overview](functional-overview.md)  
     [:octicons-arrow-right-24: Non-Functional Concepts](non-functional.md)
 
--   :material-transit-connection-variant:{ .lg .middle } **Workflow Models**
+-   :material-transit-connection-variant:{ .lg .middle } **Workflow Level Models**
 
     ---
 
-    Illustrative credential flows, boundary definitions and governance pathways.
+    Illustrative credential flow diagrams, boundary definitions, and governance pathways.
 
     [:octicons-arrow-right-24: Workflow Diagrams](workflow-diagrams.md)
 
@@ -81,7 +77,7 @@ OceanRithm deliberately leaves out implementation, deployment and infrastructure
 
     ---
 
-    Abstract scenarios showing how the concepts apply to multi tenant DevSecOps.
+    Abstract scenarios demonstrating how OceanRithm concepts apply to multi tenant DevSecOps environments.
 
     [:octicons-arrow-right-24: Use Cases](use-cases.md)
 
@@ -89,26 +85,27 @@ OceanRithm deliberately leaves out implementation, deployment and infrastructure
 
     ---
 
-    Where the model currently stops and where the research goes next.
+    Documented conceptual boundaries and proposed research extensions.
 
     [:octicons-arrow-right-24: Limitations](limitations.md)  
     [:octicons-arrow-right-24: Future Work](future-work.md)
 
--   :material-book-open-variant:{ .lg .middle } **Glossary & References**
-
-    ---
-
-    Key terms used across the portal and the literature it builds on.
-
-    [:octicons-arrow-right-24: Glossary](glossary.md)  
-    [:octicons-arrow-right-24: References](references.md)
-
 </div>
 
-!!! info "Important notice"
+<div class="or-notice" markdown>
+## **Important Notice**
 
-    This documentation is **conceptual and research focused**. It does **not** include source code, deployment procedures, operational workflows or proprietary implementation details.
+This documentation is **conceptual and research focused**.  
+It does **not** include source code, deployment procedures, operational workflows, or proprietary implementation details.
 
-    The OceanRithm conceptual framework is the intellectual work of **OceanRithm Solutions UG (haftungsbeschränkt)**, Berlin, Germany, and is provided exclusively for academic, evaluative and exploratory purposes.
+The OceanRithm conceptual framework is the intellectual work of:
 
-    More information: [About](about.md) · [Disclaimer](disclaimer.md)
+**OceanRithm Solutions UG (haftungsbeschränkt)**  
+Berlin, Germany  
+
+and is provided exclusively for academic, evaluative, and exploratory purposes.
+
+For additional meta-information:  
+[About](about.md)  
+[Disclaimer](disclaimer.md)
+</div>

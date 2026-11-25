@@ -88,11 +88,14 @@
     "}"
   ].join("\n");
 
-  function Manta(canvas, img) {
-    var gl = canvas.getContext("webgl", { alpha: true, premultipliedAlpha: true, antialias: true });
+  // target: a <canvas> (own context) or an existing WebGL context (shared)
+  function Manta(target, img) {
+    var own = !!(target && target.getContext);
+    var gl = own ? target.getContext("webgl", { alpha: true, premultipliedAlpha: true, antialias: true }) : target;
     if (!gl) throw new Error("no webgl");
     this.gl = gl;
-    this.canvas = canvas;
+    this.canvas = own ? target : null;
+    this.own = own;
 
     function sh(type, src) {
       var s = gl.createShader(type);
@@ -117,16 +120,20 @@
     }
     this.count = idx.length;
     var vb = gl.createBuffer();
+    this.vb = vb;
     gl.bindBuffer(gl.ARRAY_BUFFER, vb);
     gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(uv), gl.STATIC_DRAW);
     var ib = gl.createBuffer();
+    this.ib = ib;
     gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, ib);
     gl.bufferData(gl.ELEMENT_ARRAY_BUFFER, new Uint16Array(idx), gl.STATIC_DRAW);
     var loc = gl.getAttribLocation(pr, "aUV");
+    this.loc = loc;
     gl.enableVertexAttribArray(loc);
     gl.vertexAttribPointer(loc, 2, gl.FLOAT, false, 0, 0);
 
     var tex = gl.createTexture();
+    this.tex = tex;
     gl.bindTexture(gl.TEXTURE_2D, tex);
     gl.pixelStorei(gl.UNPACK_PREMULTIPLY_ALPHA_WEBGL, true);
     gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, gl.RGBA, gl.UNSIGNED_BYTE, img);
@@ -137,6 +144,7 @@
 
     gl.enable(gl.BLEND);
     gl.blendFunc(gl.ONE, gl.ONE_MINUS_SRC_ALPHA);
+    gl.disableVertexAttribArray(loc); // draw() enables it; keeps shared contexts clean
 
     var names = ["uMVP", "uT", "uAmp", "uFold", "uSpeed", "uFog", "uFogNear", "uFogFar", "uAlpha"];
     this.u = {};
@@ -157,8 +165,19 @@
 
   Manta.prototype.draw = function (o) {
     var gl = this.gl, u = this.u;
-    gl.clearColor(0, 0, 0, 0);
-    gl.clear(gl.COLOR_BUFFER_BIT);
+    gl.useProgram(this.pr);
+    gl.bindBuffer(gl.ARRAY_BUFFER, this.vb);
+    gl.enableVertexAttribArray(this.loc);
+    gl.vertexAttribPointer(this.loc, 2, gl.FLOAT, false, 0, 0);
+    gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, this.ib);
+    gl.activeTexture(gl.TEXTURE0);
+    gl.bindTexture(gl.TEXTURE_2D, this.tex);
+    gl.enable(gl.BLEND);
+    gl.blendFunc(gl.ONE, gl.ONE_MINUS_SRC_ALPHA);
+    if (!o.noClear) {
+      gl.clearColor(0, 0, 0, 0);
+      gl.clear(gl.COLOR_BUFFER_BIT);
+    }
     gl.uniformMatrix4fv(u.uMVP, false, new Float32Array(o.mvp));
     gl.uniform1f(u.uT, o.t);
     gl.uniform1f(u.uAmp, o.amp);
@@ -169,9 +188,11 @@
     gl.uniform1f(u.uFogFar, o.fogFar == null ? 40 : o.fogFar);
     gl.uniform1f(u.uAlpha, o.alpha == null ? 1 : o.alpha);
     gl.drawElements(gl.TRIANGLES, this.count, gl.UNSIGNED_SHORT, 0);
+    gl.disableVertexAttribArray(this.loc);
   };
 
   Manta.prototype.destroy = function () {
+    if (!this.own) return;
     var ext = this.gl.getExtension("WEBGL_lose_context");
     if (ext) ext.loseContext();
   };
@@ -443,9 +464,36 @@
     });
   }
 
+  /* shared with js/abyss.js */
+  window.ORMotion = {
+    Manta: Manta, M: M, chain: chain, loadManta: loadManta, assetUrl: assetUrl,
+    reduceMotion: reduceMotion, finePointer: finePointer
+  };
+
+  /* ---------------- Flow: turn the arrow lines into a diagram ----------------
+     The markdown keeps the original text ("User / -> Interaction Layer ...").
+     Here each line becomes a box; the arrow sign is drawn as a connector. */
+  function initFlow() {
+    var ps = document.querySelectorAll(".or-flow > p");
+    Array.prototype.forEach.call(ps, function (p) {
+      var parts = p.innerHTML.split(/<br\s*\/?>/i)
+        .map(function (h) { return h.replace(/^\s*(\u2192|&rarr;)\s*/, "").trim(); })
+        .filter(Boolean);
+      if (parts.length < 2) return;
+      var ul = document.createElement("ul");
+      parts.forEach(function (h) {
+        var li = document.createElement("li");
+        li.innerHTML = h;
+        ul.appendChild(li);
+      });
+      p.parentNode.replaceChild(ul, p);
+    });
+  }
+
   /* ---------------- wiring ---------------- */
   var first = true;
   function onPage() {
+    initFlow();
     initHero();
     initTilt();
     initReveal();

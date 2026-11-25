@@ -1,6 +1,4 @@
 ---
-title: Startseite
-description: OceanRithm ist ein konzeptionelles Forschungsportal zu sicherer Workflow Governance, Multi Tenant Abstraktion und Orchestrierungstheorie in DevSecOps.
 hide:
   - navigation
   - toc
@@ -8,31 +6,29 @@ hide:
 
 <div class="or-hero" markdown>
 <div class="or-hero__content" markdown>
-<span class="or-hero__eyebrow">Konzeptionelles Forschungsportal</span>
 
-<h1 class="or-hero__title">Sichere Orchestrierung, von den Grundprinzipien her gedacht</h1>
+<h1 class="or-hero__title">OceanRithm – Konzeptionelles Forschungsportal</h1>
 
-<p class="or-hero__lead">OceanRithm ist ein forschungsorientiertes Framework für sichere Workflow Governance, Multi Tenant Abstraktionsmodelle und Orchestrierungstheorie in modernen DevSecOps Ökosystemen.</p>
+<p class="or-hero__lead">OceanRithm ist ein forschungsorientiertes Framework, das sich auf die Weiterentwicklung von sicherem Workflow Governance, Multi Tenant Abstraktionsmodellen und Orchestrierungstheorie in modernen DevSecOps Ökosystemen konzentriert.</p>
 
-[Zur Architektur](conceptual-architecture.md){ .md-button .md-button--primary }
-[Zum Hintergrund](background.md){ .md-button }
 </div>
 
 ![](../images/manta.png){ .or-hero__manta }
 </div>
 
-## Für wen dieses Portal gedacht ist
+Dieses Portal bietet einen akademisch ausgerichteten, hochstrukturierten Überblick über die konzeptionellen Grundlagen von OceanRithm entwickelt für:
 
 <div class="or-chips" markdown>
 <span class="or-chip">:material-school-outline: Akademische Begutachtung</span>
-<span class="or-chip">:material-file-document-check-outline: Peer Review und Publikation</span>
+<span class="or-chip">:material-file-document-check-outline: Peer Review und Publikationsprozesse</span>
 <span class="or-chip">:material-account-supervisor-outline: Wissenschaftliche Betreuung</span>
-<span class="or-chip">:material-strategy: Architekturbewertung</span>
+<span class="or-chip">:material-strategy: Strategische Architekturbewertung</span>
 </div>
 
-OceanRithm abstrahiert bewusst Implementierungsdetails, Deployment Aspekte und infrastrukturabhängige Mechanismen, damit die Konzepte klar und die Forschung sauber bleibt. Im Mittelpunkt stehen **Prinzipien, Governance Modelle, Identitätsgrenzen und sichere Orchestrierungslogik**.
+OceanRithm abstrahiert bewusst Implementierungsdetails, Deployment Aspekte und infrastrukturabhängige Mechanismen, um konzeptionelle Klarheit und wissenschaftliche Integrität zu bewahren.  
+Der Schwerpunkt liegt auf **Prinzipien, Governance Modellen, Identitätsgrenzen und sicherer Orchestrierungslogik**.
 
-## Umfang der Dokumentation
+## **Umfang der Dokumentation**
 
 <div class="grid cards" markdown>
 
@@ -40,75 +36,76 @@ OceanRithm abstrahiert bewusst Implementierungsdetails, Deployment Aspekte und i
 
     ---
 
-    Herausforderungen und Lücken in heutigen sicheren Multi Tenant CI/CD Ökosystemen.
+    Eine strukturierte Analyse der Herausforderungen und Lücken in aktuellen sicheren Multi Tenant CI/CD Ökosystemen.
 
-    [:octicons-arrow-right-24: Hintergrund](background.md)
+    [:octicons-arrow-right-24: Background](background.md)
 
 -   :material-layers-triple-outline:{ .lg .middle } **Konzeptionelle Architektur**
 
     ---
 
-    Ein Schichtenmodell aus Identitätsgovernance, Token Grenzen und Orchestrierungs Lebenszyklus.
+    Eine schichtenbasierte Darstellung von Identitätsgovernance, Token Grenzen und Abstraktionen des Orchestrierungs Lebenszyklus.
 
-    [:octicons-arrow-right-24: Architektur](conceptual-architecture.md)
+    [:octicons-arrow-right-24: Conceptual Architecture](conceptual-architecture.md)
 
 -   :material-shield-check-outline:{ .lg .middle } **Designprinzipien**
 
     ---
 
-    Sicherheitsinvarianten, theoretische Rahmenbedingungen und die Grundannahmen des Modells.
+    Sicherheitsinvarianten, theoretische Rahmenbedingungen und zentrale Architekturannahmen, die OceanRithm leiten.
 
-    [:octicons-arrow-right-24: Designprinzipien](design-principles.md)
+    [:octicons-arrow-right-24: Design Principles](design-principles.md)
 
--   :material-puzzle-outline:{ .lg .middle } **Funktional & Nichtfunktional**
+-   :material-puzzle-outline:{ .lg .middle } **Funktionale & Nichtfunktionale Perspektiven**
 
     ---
 
-    Die funktionalen Rollen im Modell und die konzeptionellen Anforderungen, die es prägen.
+    Eine konzeptionelle Übersicht über die primären funktionalen Rollen sowie nichtfunktionale Anforderungen des Modells.
 
-    [:octicons-arrow-right-24: Funktionale Übersicht](functional-overview.md)  
-    [:octicons-arrow-right-24: Nicht-funktionale Konzepte](non-functional.md)
+    [:octicons-arrow-right-24: Functional Overview](functional-overview.md)  
+    [:octicons-arrow-right-24: Non-Functional Concepts](non-functional.md)
 
 -   :material-transit-connection-variant:{ .lg .middle } **Workflow Modelle**
 
     ---
 
-    Illustrative Credential Flows, Grenzdefinitionen und Governance Pfade.
+    Illustrative Diagramme zu Credential Flows, Grenzdefinitionen und Governance Pfaden.
 
-    [:octicons-arrow-right-24: Ablaufdiagramme](workflow-diagrams.md)
+    [:octicons-arrow-right-24: Workflow Diagrams](workflow-diagrams.md)
 
--   :material-lightbulb-on-outline:{ .lg .middle } **Anwendungsfälle**
-
-    ---
-
-    Abstrakte Szenarien, wie die Konzepte in Multi Tenant DevSecOps greifen.
-
-    [:octicons-arrow-right-24: Anwendungsfälle](use-cases.md)
-
--   :material-telescope:{ .lg .middle } **Grenzen & Zukünftige Forschung**
+-   :material-lightbulb-on-outline:{ .lg .middle } **Use Cases**
 
     ---
 
-    Wo das Modell heute endet und wohin die Forschung als Nächstes geht.
+    Abstrakte Szenarien, die die Anwendung der OceanRithm Konzepte in Multi Tenant DevSecOps Umgebungen demonstrieren.
 
-    [:octicons-arrow-right-24: Einschränkungen](limitations.md)  
-    [:octicons-arrow-right-24: Zukünftige Arbeiten](future-work.md)
+    [:octicons-arrow-right-24: Use Cases](use-cases.md)
 
--   :material-book-open-variant:{ .lg .middle } **Glossar & Referenzen**
+-   :material-telescope:{ .lg .middle } **Limitierungen & Zukünftige Forschung**
 
     ---
 
-    Zentrale Begriffe des Portals und die Literatur, auf der es aufbaut.
+    Dokumentierte konzeptionelle Grenzen und vorgeschlagene Erweiterungen für zukünftige Forschungsarbeiten.
 
-    [:octicons-arrow-right-24: Glossar](glossary.md)  
-    [:octicons-arrow-right-24: Referenzen](references.md)
+    [:octicons-arrow-right-24: Limitations](limitations.md)  
+    [:octicons-arrow-right-24: Future Work](future-work.md)
 
 </div>
 
-!!! info "Wichtiger Hinweis"
+<div class="or-notice" markdown>
+## **Wichtiger Hinweis**
 
-    Diese Dokumentation ist **konzeptionell und forschungsorientiert**. Sie enthält **keinen** Quellcode, keine Deployment Prozesse, keine operativen Abläufe und keine proprietären Implementierungsdetails.
+Diese Dokumentation ist **konzeptionell und forschungsorientiert**.  
+Sie enthält **keinen** Quellcode, keine Deployment Prozesse, keine operativen Abläufe und keine proprietären Implementierungsdetails.
 
-    Das konzeptionelle Framework von OceanRithm ist das geistige Eigentum der **OceanRithm Solutions UG (haftungsbeschränkt)**, Berlin, Deutschland, und wird ausschließlich für akademische, evaluative und forschungsbezogene Zwecke bereitgestellt.
+Das konzeptionelle Framework von OceanRithm ist das geistige Eigentum von:
 
-    Weitere Informationen: [Über uns](about.md) · [Haftungsausschluss](disclaimer.md)
+**OceanRithm Solutions UG (haftungsbeschränkt)**  
+Berlin, Deutschland  
+
+und wird ausschließlich für akademische, evaluative und forschungsbezogene Zwecke bereitgestellt.
+
+Weitere Zusatzinformationen:  
+[About](about.md)  
+[Disclaimer](disclaimer.md)
+</div>
