@@ -1339,3 +1339,129 @@ html.or-abyss-on .md-typeset .grid.cards > ul > li > p:first-child {
 html.or-abyss-on .md-typeset .grid.cards > ul > li > p:first-child .twemoji.lg {
   flex: 0 0 auto;
 }
+
+/* =========================================================
+   17) HUD frames: chamfered corners, neon edges, scan lines
+   ========================================================= */
+html.or-abyss-on {
+  --or-line: rgba(79, 209, 219, 0.6);
+  --or-line-soft: rgba(27, 117, 187, 0.35);
+}
+html.or-abyss-on:has(body[data-md-color-scheme="default"]) {
+  --or-line: rgba(18, 140, 160, 0.7);
+  --or-line-soft: rgba(15, 76, 110, 0.3);
+}
+
+/* shared frame: cut corners + gradient edge + diagonal edge on the cuts */
+html.or-abyss-on .md-typeset .grid.cards > ul > li,
+html.or-abyss-on .md-content__inner:not(:has(.or-hero)),
+html.or-abyss-on .md-typeset .or-notice,
+html.or-abyss-on .md-typeset .admonition,
+html.or-abyss-on .md-typeset details,
+html.or-abyss-on .md-typeset .or-chip,
+html.or-abyss-on .md-typeset .or-hero .md-button {
+  --c: 14px;
+  --fill: var(--or-glass);
+  border: 1px solid transparent !important;
+  border-image: linear-gradient(135deg, var(--or-line), var(--or-line-soft) 40%, rgba(79, 209, 219, 0.15) 65%, var(--or-line)) 1 !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  background:
+    linear-gradient(to bottom right, transparent calc(50% - 1px), var(--or-line) calc(50% - 1px), var(--or-line) calc(50% + 0.5px), transparent calc(50% + 0.5px)) left top / var(--c) var(--c) no-repeat border-box,
+    linear-gradient(to bottom right, transparent calc(50% - 1px), var(--or-line) calc(50% - 1px), var(--or-line) calc(50% + 0.5px), transparent calc(50% + 0.5px)) right bottom / var(--c) var(--c) no-repeat border-box,
+    linear-gradient(var(--fill), var(--fill)) padding-box !important;
+  clip-path: polygon(var(--c) 0, 100% 0, 100% calc(100% - var(--c)), calc(100% - var(--c)) 100%, 0 100%, 0 var(--c));
+}
+
+/* sizes */
+html.or-abyss-on .md-content__inner:not(:has(.or-hero)) { --c: 26px; }
+html.or-abyss-on .md-typeset .or-notice { --c: 20px; }
+html.or-abyss-on .md-typeset .or-chip { --c: 8px; --fill: rgba(79, 209, 219, 0.07); }
+html.or-abyss-on .md-typeset .or-hero .md-button { --c: 10px; }
+
+/* cards: scan lines, status tick, inner light */
+html.or-abyss-on .md-typeset .grid.cards > ul > li {
+  --c: 16px;
+  background:
+    linear-gradient(to bottom right, transparent calc(50% - 1px), var(--or-line) calc(50% - 1px), var(--or-line) calc(50% + 0.5px), transparent calc(50% + 0.5px)) left top / var(--c) var(--c) no-repeat border-box,
+    linear-gradient(to bottom right, transparent calc(50% - 1px), var(--or-line) calc(50% - 1px), var(--or-line) calc(50% + 0.5px), transparent calc(50% + 0.5px)) right bottom / var(--c) var(--c) no-repeat border-box,
+    linear-gradient(var(--or-line), var(--or-line)) right 18px top 10px / 28px 2px no-repeat padding-box,
+    linear-gradient(var(--or-line), var(--or-line)) right 50px top 10px / 6px 2px no-repeat padding-box,
+    repeating-linear-gradient(0deg, rgba(79, 209, 219, 0.035) 0 1px, transparent 1px 4px) padding-box,
+    radial-gradient(120% 90% at 0% 0%, rgba(79, 209, 219, 0.12), transparent 55%) padding-box,
+    linear-gradient(var(--fill), var(--fill)) padding-box !important;
+  transition: transform 0.08s linear, filter 0.3s ease;
+}
+html.or-abyss-on .md-typeset .grid.cards > ul > li:hover {
+  --or-line: rgba(143, 240, 245, 0.95);
+  filter: brightness(1.08);
+}
+html.or-abyss-on .md-typeset .grid.cards > ul > li::after {
+  border-radius: 0;
+}
+
+/* the line under each card title becomes a glowing rail */
+html.or-abyss-on .md-typeset .grid.cards > ul > li > hr {
+  border: 0;
+  height: 1px;
+  background: linear-gradient(90deg, var(--or-line), rgba(79, 209, 219, 0.08) 70%, transparent);
+}
+
+/* primary hero button: solid neon plate */
+html.or-abyss-on .md-typeset .or-hero .md-button--primary {
+  --fill: rgba(18, 168, 179, 0.85);
+  color: #fff;
+}
+html.or-abyss-on .md-typeset .or-hero .md-button--primary:hover {
+  --fill: rgba(27, 194, 204, 0.95);
+}
+html.or-abyss-on .md-typeset .or-hero .md-button:not(.md-button--primary) {
+  --fill: rgba(255, 255, 255, 0.04);
+}
+
+/* main reading panel: tiny label ticks in the top right corner */
+html.or-abyss-on .md-content__inner:not(:has(.or-hero)) {
+  background:
+    linear-gradient(to bottom right, transparent calc(50% - 1px), var(--or-line) calc(50% - 1px), var(--or-line) calc(50% + 0.5px), transparent calc(50% + 0.5px)) left top / var(--c) var(--c) no-repeat border-box,
+    linear-gradient(to bottom right, transparent calc(50% - 1px), var(--or-line) calc(50% - 1px), var(--or-line) calc(50% + 0.5px), transparent calc(50% + 0.5px)) right bottom / var(--c) var(--c) no-repeat border-box,
+    linear-gradient(var(--or-line), var(--or-line)) right 22px top 12px / 40px 2px no-repeat padding-box,
+    linear-gradient(var(--or-line), var(--or-line)) right 68px top 12px / 8px 2px no-repeat padding-box,
+    linear-gradient(var(--fill), var(--fill)) padding-box !important;
+}
+
+/* desktop sidebars and depth gauge get the same cut corners */
+@media screen and (min-width: 76.25em) {
+  html.or-abyss-on .md-sidebar__scrollwrap {
+    --c: 14px;
+    border: 1px solid transparent !important;
+    border-image: linear-gradient(160deg, var(--or-line-soft), rgba(79, 209, 219, 0.12) 60%, var(--or-line-soft)) 1 !important;
+    border-radius: 0 !important;
+    clip-path: polygon(var(--c) 0, 100% 0, 100% calc(100% - var(--c)), calc(100% - var(--c)) 100%, 0 100%, 0 var(--c));
+  }
+}
+@media screen and (min-width: 45em) {
+  .or-hud {
+    border-radius: 0;
+    border: 1px solid transparent;
+    border-image: linear-gradient(135deg, rgba(79, 209, 219, 0.6), rgba(27, 117, 187, 0.3) 50%, rgba(79, 209, 219, 0.6)) 1;
+    clip-path: polygon(10px 0, 100% 0, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0 100%, 0 10px);
+  }
+  .or-hud__sound {
+    border-radius: 0;
+    clip-path: polygon(6px 0, 100% 0, 100% calc(100% - 6px), calc(100% - 6px) 100%, 0 100%, 0 6px);
+  }
+}
+
+/* layer stack + flow nodes: angular plates instead of rounded pills */
+html.or-abyss-on .md-typeset .or-layers ol li {
+  border-radius: 0;
+  clip-path: polygon(12px 0, 100% 0, 100% calc(100% - 12px), calc(100% - 12px) 100%, 0 100%, 0 12px);
+}
+/* flow nodes: square corners only (a clip would hide the arrows between them) */
+html.or-abyss-on .md-typeset .or-flow ul li {
+  border-radius: 0;
+}
+html.or-abyss-on .md-typeset .or-layers ol li::before {
+  border-radius: 0;
+  clip-path: polygon(5px 0, 100% 0, 100% calc(100% - 5px), calc(100% - 5px) 100%, 0 100%, 0 5px);
+}
