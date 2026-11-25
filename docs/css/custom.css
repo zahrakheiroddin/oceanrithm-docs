@@ -1465,3 +1465,34 @@ html.or-abyss-on .md-typeset .or-layers ol li::before {
   border-radius: 0;
   clip-path: polygon(5px 0, 100% 0, 100% calc(100% - 5px), calc(100% - 5px) 100%, 0 100%, 0 5px);
 }
+
+/* =========================================================
+   18) Logo in the header on phones and tablets too
+   (the theme normally hides it below desktop width)
+   ========================================================= */
+@media screen and (max-width: 76.2344em) {
+  /* menu button first, then logo right next to the name, like on desktop */
+  .md-header__inner > label.md-header__button[for="__drawer"] {
+    order: -1;
+  }
+  .md-header__button.md-logo {
+    display: inline-block;
+    margin: 0.2rem 0 0.2rem 0.1rem;
+    padding: 0.3rem;
+  }
+  .md-header__button.md-logo img {
+    height: 1.7rem;
+    width: auto;
+  }
+  .md-header__title {
+    margin-left: 0.3rem;
+  }
+}
+@media screen and (max-width: 44.9844em) {
+  .md-header__button.md-logo img {
+    height: 1.45rem;
+  }
+  .md-header__title {
+    margin-left: 0.15rem;
+  }
+}
