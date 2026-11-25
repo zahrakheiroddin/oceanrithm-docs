@@ -152,7 +152,7 @@
   }
 
   Manta.prototype.resize = function () {
-    var dpr = Math.min(window.devicePixelRatio || 1, 2);
+    var dpr = Math.min(window.devicePixelRatio || 1, window.innerWidth < 700 ? 1.5 : 2);
     var w = Math.max(1, Math.round(this.canvas.clientWidth * dpr));
     var h = Math.max(1, Math.round(this.canvas.clientHeight * dpr));
     if (this.canvas.width !== w || this.canvas.height !== h) {
@@ -359,7 +359,8 @@
       hero.removeEventListener("pointerleave", onLeave);
     };
     heroCleanup = stop;
-    if (reduceMotion || window.innerWidth < 700) return;
+    if (reduceMotion) return;
+    var phone = window.innerWidth < 700;
 
     var img = hero.querySelector(".or-hero__manta");
     loadManta(function (tex) {
@@ -379,9 +380,13 @@
       });
       io.observe(hero);
 
+      var lastHero = 0;
       function frame(now) {
         raf = 0;
         if (!visible || document.hidden) return;
+        // phones: 30 fps keeps the manta smooth and the battery happy
+        if (phone && now - lastHero < 31) { raf = requestAnimationFrame(frame); return; }
+        lastHero = now;
         var T = (now - t0) / 1000;
         var a = manta.resize();
         cx += (tx - cx) * 0.06;

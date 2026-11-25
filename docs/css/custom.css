@@ -1256,3 +1256,25 @@ html.or-abyss-on .md-container {
     overflow-wrap: break-word;
   }
 }
+
+/* touch devices (phones and iPads): the page must never move sideways.
+   The hero keeps the manta inside its own box. */
+html.or-mobile {
+  overflow-x: hidden;
+}
+html.or-mobile.or-abyss-on .or-hero {
+  overflow: hidden;
+  overflow: clip;
+}
+html.or-mobile.or-abyss-on .or-hero__gl {
+  right: 0;
+}
+@media screen and (max-width: 44.9844em) {
+  html.or-mobile.or-abyss-on .or-hero__gl {
+    width: 72%;
+    height: 52%;
+    right: -14%;
+    top: 0;
+    opacity: 0.5;
+  }
+}
