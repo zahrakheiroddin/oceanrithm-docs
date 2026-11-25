@@ -1,6 +1,83 @@
 {% extends "base.html" %}
 
+{#- Browser tab / Google title: the page's own heading on the two home pages -#}
+{% block htmltitle %}
+  {%- if page and page.meta and page.meta.seo_title -%}
+    <title>{{ page.meta.seo_title }}</title>
+  {%- else -%}
+    {{ super() }}
+  {%- endif -%}
+{% endblock %}
+
 {% block extrahead %}
+  {#- ---------- Search engines and link previews (not on the 404 page) ---------- -#}
+  {%- if page %}
+  {%- set lang = "de" if page.url.startswith("de/") else "en" -%}
+  {%- if page.meta and page.meta.seo_title -%}
+    {%- set og_title = page.meta.seo_title -%}
+  {%- elif page.title and not page.is_homepage -%}
+    {%- set og_title = (page.title | striptags) ~ " - " ~ config.site_name -%}
+  {%- else -%}
+    {%- set og_title = config.site_name -%}
+  {%- endif -%}
+  {%- set og_desc = page.meta.description if page.meta and page.meta.description else config.site_description -%}
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="OceanRithm">
+  <meta property="og:title" content="{{ og_title }}">
+  <meta property="og:description" content="{{ og_desc }}">
+  <meta property="og:url" content="{{ page.canonical_url }}">
+  <meta property="og:image" content="{{ config.site_url }}images/og-image.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="OceanRithm – Conceptual Research Portal">
+  <meta property="og:locale" content="{{ 'de_DE' if lang == 'de' else 'en_US' }}">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="{{ og_title }}">
+  <meta name="twitter:description" content="{{ og_desc }}">
+  <meta name="twitter:image" content="{{ config.site_url }}images/og-image.jpg">
+  <link rel="apple-touch-icon" href="{{ config.site_url }}images/apple-touch-icon.png">
+  {%- if page.url.startswith("en/") or page.url.startswith("de/") %}
+  {%- set rest = page.url[3:] %}
+  <link rel="alternate" hreflang="en" href="{{ config.site_url }}en/{{ rest }}">
+  <link rel="alternate" hreflang="de" href="{{ config.site_url }}de/{{ rest }}">
+  <link rel="alternate" hreflang="x-default" href="{{ config.site_url }}en/{{ rest }}">
+  {%- endif %}
+  {%- if page.is_homepage or page.url in ["en/", "de/"] %}
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://oceanrithm.com/#organization",
+        "name": "OceanRithm",
+        "legalName": "OceanRithm Solutions UG (haftungsbeschränkt)",
+        "alternateName": "OceanRithm Solutions",
+        "url": "https://oceanrithm.com/",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://oceanrithm.com/images/logo-512.png",
+          "width": 512,
+          "height": 512
+        },
+        "image": "https://oceanrithm.com/images/og-image.jpg",
+        "sameAs": ["https://www.instagram.com/oceanrithm/"]
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://oceanrithm.com/#website",
+        "name": "OceanRithm",
+        "alternateName": ["OceanRithm Solutions", "OceanRithm Solutions UG"],
+        "url": "https://oceanrithm.com/",
+        "inLanguage": ["en", "de"],
+        "publisher": { "@id": "https://oceanrithm.com/#organization" }
+      }
+    ]
+  }
+  </script>
+  {%- endif %}
+  {%- endif %}
+
   <!--
     Runs before the page paints:
     - marks that JS is available (enables reveal animations)

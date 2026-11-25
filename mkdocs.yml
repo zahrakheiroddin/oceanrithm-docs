@@ -1,5 +1,6 @@
 site_name: OceanRithm
 site_url: https://oceanrithm.com/
+site_description: "OceanRithm is a research-driven framework focused on advancing secure workflow governance, multi-tenant abstraction models, and orchestration theory within modern DevSecOps ecosystems."
 
 theme:
   name: material
@@ -44,12 +45,12 @@ extra:
       name: OceanRithm on Instagram
 
 extra_css:
-  - css/custom.css?v=10
+  - css/custom.css?v=11
 
 extra_javascript:
-  - js/lang-switcher.js?v=10
-  - js/ocean.js?v=10
-  - js/abyss.js?v=10
+  - js/lang-switcher.js?v=11
+  - js/ocean.js?v=11
+  - js/abyss.js?v=11
 
 markdown_extensions:
   - attr_list

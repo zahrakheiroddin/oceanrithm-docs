@@ -1,4 +1,6 @@
 ---
+seo_title: "OceanRithm – Konzeptionelles Forschungsportal"
+description: "OceanRithm ist ein forschungsorientiertes Framework, das sich auf die Weiterentwicklung von sicherer Workflow-Governance, Multi-Tenant-Abstraktionsmodellen und Orchestrierungstheorie in modernen DevSecOps-Ökosystemen konzentriert."
 hide:
   - navigation
   - toc
