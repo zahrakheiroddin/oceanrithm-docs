@@ -1278,3 +1278,64 @@ html.or-mobile.or-abyss-on .or-hero__gl {
     opacity: 0.5;
   }
 }
+
+
+/* =========================================================
+   16) HUD icons: hexagon badges with glow (cards on the home page)
+   ========================================================= */
+html.or-abyss-on .md-typeset .grid.cards > ul > li > p:first-child .twemoji.lg {
+  --or-hex: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20100%20100%22%3E%3Cpolygon%20points%3D%2250%2C3%2093%2C27%2093%2C73%2050%2C97%207%2C73%207%2C27%22%20fill%3D%22rgba%2810%2C40%2C62%2C0.85%29%22%20stroke%3D%22%234fd1db%22%20stroke-width%3D%222.5%22/%3E%3Cpolygon%20points%3D%2250%2C13%2084%2C32%2084%2C68%2050%2C87%2016%2C68%2016%2C32%22%20fill%3D%22none%22%20stroke%3D%22%234fd1db%22%20stroke-opacity%3D%22.35%22%20stroke-width%3D%221%22%20stroke-dasharray%3D%224%203%22/%3E%3Cpath%20d%3D%22M50%200v7M50%2093v7%22%20stroke%3D%22%234fd1db%22%20stroke-width%3D%223%22/%3E%3C/svg%3E");
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 3rem;
+  height: 3rem;
+  margin-right: 0.55rem;
+  background: var(--or-hex) center / contain no-repeat;
+  filter: drop-shadow(0 0 8px rgba(79, 209, 219, 0.45));
+  transition: filter 0.3s ease, transform 0.3s ease;
+}
+html.or-abyss-on .md-typeset .grid.cards > ul > li > p:first-child .twemoji.lg svg {
+  width: 1.35rem;
+  height: 1.35rem;
+  fill: #8ff0f5;
+}
+html.or-abyss-on .md-typeset .grid.cards > ul > li:hover > p:first-child .twemoji.lg {
+  --or-hex: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20100%20100%22%3E%3Cpolygon%20points%3D%2250%2C3%2093%2C27%2093%2C73%2050%2C97%207%2C73%207%2C27%22%20fill%3D%22rgba%2818%2C80%2C110%2C0.9%29%22%20stroke%3D%22%239ff3f7%22%20stroke-width%3D%222.5%22/%3E%3Cpolygon%20points%3D%2250%2C13%2084%2C32%2084%2C68%2050%2C87%2016%2C68%2016%2C32%22%20fill%3D%22none%22%20stroke%3D%22%239ff3f7%22%20stroke-opacity%3D%22.35%22%20stroke-width%3D%221%22%20stroke-dasharray%3D%224%203%22/%3E%3Cpath%20d%3D%22M50%200v7M50%2093v7%22%20stroke%3D%22%23ffffff%22%20stroke-width%3D%223%22/%3E%3C/svg%3E");
+  transform: scale(1.08) rotate(-4deg);
+  filter: drop-shadow(0 0 14px rgba(79, 209, 219, 0.8));
+}
+html.or-abyss-on body[data-md-color-scheme="default"] .md-typeset .grid.cards > ul > li > p:first-child .twemoji.lg {
+  --or-hex: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20100%20100%22%3E%3Cpolygon%20points%3D%2250%2C3%2093%2C27%2093%2C73%2050%2C97%207%2C73%207%2C27%22%20fill%3D%22rgba%28255%2C255%2C255%2C0.9%29%22%20stroke%3D%22%2312a8b3%22%20stroke-width%3D%222.5%22/%3E%3Cpolygon%20points%3D%2250%2C13%2084%2C32%2084%2C68%2050%2C87%2016%2C68%2016%2C32%22%20fill%3D%22none%22%20stroke%3D%22%2312a8b3%22%20stroke-opacity%3D%22.35%22%20stroke-width%3D%221%22%20stroke-dasharray%3D%224%203%22/%3E%3Cpath%20d%3D%22M50%200v7M50%2093v7%22%20stroke%3D%22%2312a8b3%22%20stroke-width%3D%223%22/%3E%3C/svg%3E");
+  filter: drop-shadow(0 0 6px rgba(18, 168, 179, 0.35));
+}
+html.or-abyss-on body[data-md-color-scheme="default"] .md-typeset .grid.cards > ul > li > p:first-child .twemoji.lg svg {
+  fill: #0f4c6e;
+}
+
+/* HUD corner brackets on the cards */
+html.or-abyss-on .md-typeset .grid.cards > ul > li {
+  background-image:
+    linear-gradient(#4fd1db, #4fd1db), linear-gradient(#4fd1db, #4fd1db),
+    linear-gradient(#4fd1db, #4fd1db), linear-gradient(#4fd1db, #4fd1db);
+  background-size: 14px 2px, 2px 14px, 14px 2px, 2px 14px;
+  background-position: right 8px bottom 8px, right 8px bottom 8px, left 8px top 10px, left 8px top 10px;
+  background-repeat: no-repeat;
+}
+html.or-abyss-on .md-typeset .grid.cards > ul > li:hover {
+  background-size: 22px 2px, 2px 22px, 22px 2px, 2px 22px;
+}
+
+/* chips get small glowing icons too */
+html.or-abyss-on .md-typeset .or-chip .twemoji svg {
+  fill: #8ff0f5;
+  filter: drop-shadow(0 0 4px rgba(79, 209, 219, 0.6));
+}
+/* icon and title side by side, long titles wrap next to the badge */
+html.or-abyss-on .md-typeset .grid.cards > ul > li > p:first-child {
+  display: flex;
+  align-items: center;
+}
+html.or-abyss-on .md-typeset .grid.cards > ul > li > p:first-child .twemoji.lg {
+  flex: 0 0 auto;
+}
