@@ -13,6 +13,16 @@
       var d = document.documentElement;
       d.classList.add("or-js");
       try {
+        var mob = window.matchMedia && window.matchMedia("(max-width: 59.9844em), (pointer: coarse)").matches;
+        if (mob) {
+          d.classList.add("or-mobile");
+          for (var i = localStorage.length - 1; i >= 0; i--) {
+            var k = localStorage.key(i);
+            if (k && k.indexOf("__palette") !== -1) localStorage.removeItem(k);
+          }
+        }
+      } catch (e) {}
+      try {
         var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
         var seen = false;
         try { seen = sessionStorage.getItem("or-intro-seen") === "1"; } catch (e) {}
