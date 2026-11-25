@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block extrahead %}
+  <!--
+    Runs before the page paints:
+    - marks that JS is available (enables reveal animations)
+    - hides the page while the manta intro plays (first visit per session only)
+    The intro is skipped for reduced-motion users and for crawlers,
+    and a timeout always unhides the page in case anything fails.
+  -->
+  <script>
+    (function () {
+      var d = document.documentElement;
+      d.classList.add("or-js");
+      try {
+        var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+        var seen = false;
+        try { seen = sessionStorage.getItem("or-intro-seen") === "1"; } catch (e) {}
+        var bot = /bot|crawl|spider|slurp|lighthouse|headless/i.test(navigator.userAgent);
+        if (!reduce && !seen && !bot) {
+          d.classList.add("or-intro-pending");
+          setTimeout(function () { d.classList.remove("or-intro-pending"); }, 8000);
+        }
+      } catch (e) {}
+    })();
+  </script>
+  <style>
+    html.or-intro-pending { background: #031320; }
+    html.or-intro-pending body { overflow: hidden; }
+    html.or-intro-pending .md-header,
+    html.or-intro-pending .md-container { visibility: hidden; }
+  </style>
+{% endblock %}

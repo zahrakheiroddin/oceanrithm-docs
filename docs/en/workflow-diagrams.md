@@ -2,14 +2,19 @@
 
 ## Example (Non Operational)
 
-User  
-→ Interaction Layer  
-→ Control Layer  
-→ Governance Layer  
-→ Tenant Abstraction Layer  
-→ Observation Layer
+<div class="or-flow" markdown>
 
-### Notes
-- No internal logic is shown.
-- No technical flow is exposed.
-- Fully conceptual and non executable.
+- User
+- Interaction Layer
+- Control Layer
+- Governance Layer
+- Tenant Abstraction Layer
+- Observation Layer
+
+</div>
+
+!!! note "Notes"
+
+    - No internal logic is shown.
+    - No technical flow is exposed.
+    - Fully conceptual and non executable.

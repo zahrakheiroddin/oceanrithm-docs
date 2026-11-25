@@ -2,14 +2,19 @@
 
 ## Beispiel (Nicht operational)
 
-Benutzer  
-→ Interaktionsebene  
-→ Steuerungsebene  
-→ Governance Ebene  
-→ Tenant Abstraktionsebene  
-→ Beobachtungsebene
+<div class="or-flow" markdown>
 
-### Hinweise
-- Es wird keine interne Logik dargestellt.  
-- Es wird kein technischer Ablauf offengelegt.  
-- Vollständig konzeptionell und nicht ausführbar.
+- Benutzer
+- Interaktionsebene
+- Steuerungsebene
+- Governance Ebene
+- Tenant Abstraktionsebene
+- Beobachtungsebene
+
+</div>
+
+!!! note "Hinweise"
+
+    - Es wird keine interne Logik dargestellt.
+    - Es wird kein technischer Ablauf offengelegt.
+    - Vollständig konzeptionell und nicht ausführbar.

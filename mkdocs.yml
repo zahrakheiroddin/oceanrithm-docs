@@ -1,49 +1,114 @@
 site_name: OceanRithm
+site_url: https://oceanrithm.com/
+site_description: OceanRithm Solutions UG – conceptual research portal on secure workflow governance and DevSecOps orchestration.
+copyright: "&copy; 2025–2026 OceanRithm Solutions UG (haftungsbeschränkt) · Berlin · Research Documentation Portal"
 
 theme:
   name: material
+  custom_dir: overrides
   logo: images/logo.png
   favicon: images/favicon.png
+  # Fonts are self-hosted in docs/fonts (no requests to Google, GDPR friendly)
+  font: false
+  palette:
+    # Light mode
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: custom
+      accent: custom
+      toggle:
+        icon: material/weather-night
+        name: Dark mode
+    # Dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: custom
+      accent: custom
+      toggle:
+        icon: material/weather-sunny
+        name: Light mode
+  features:
+    - navigation.instant
+    - navigation.instant.progress
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.sections
+    - navigation.top
+    - navigation.footer
+    - toc.follow
+    - search.suggest
+    - search.highlight
+    - content.tooltips
+
+extra:
+  generator: false
+  social:
+    - icon: fontawesome/brands/instagram
+      link: https://www.instagram.com/oceanrithm/
+      name: OceanRithm on Instagram
 
 extra_css:
   - css/custom.css
 
 extra_javascript:
   - js/lang-switcher.js
+  - js/ocean.js
+
+markdown_extensions:
+  - attr_list
+  - md_in_html
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - toc:
+      permalink: true
 
 nav:
-  - Home: index.md
   - English:
       - Home: en/index.md
-      - Background: en/background.md
-      - Architecture: en/conceptual-architecture.md
-      - Design Principles: en/design-principles.md
-      - Functional Overview: en/functional-overview.md
-      - Non-Functional Concepts: en/non-functional.md
-      - Workflow Diagrams: en/workflow-diagrams.md
-      - Use Cases: en/use-cases.md
-      - Limitations: en/limitations.md
-      - Future Work: en/future-work.md
-      - Glossary: en/glossary.md
-      - References: en/references.md
-      - About: en/about.md
-      - Disclaimer: en/disclaimer.md
-      - Impressum: en/impressum.md
-      - Privacy: en/privacy.md
+      - Research:
+          - Background: en/background.md
+          - Architecture: en/conceptual-architecture.md
+          - Design Principles: en/design-principles.md
+          - Functional Overview: en/functional-overview.md
+          - Non-Functional Concepts: en/non-functional.md
+          - Workflow Diagrams: en/workflow-diagrams.md
+          - Use Cases: en/use-cases.md
+      - Outlook:
+          - Limitations: en/limitations.md
+          - Future Work: en/future-work.md
+      - Reference:
+          - Glossary: en/glossary.md
+          - References: en/references.md
+      - About & Legal:
+          - About: en/about.md
+          - Disclaimer: en/disclaimer.md
+          - Impressum: en/impressum.md
+          - Privacy: en/privacy.md
   - Deutsch:
       - Startseite: de/index.md
-      - Hintergrund: de/background.md
-      - Architektur: de/conceptual-architecture.md
-      - Designprinzipien: de/design-principles.md
-      - Funktionale Übersicht: de/functional-overview.md
-      - Nicht-funktionale Konzepte: de/non-functional.md
-      - Ablaufdiagramme: de/workflow-diagrams.md
-      - Anwendungsfälle: de/use-cases.md
-      - Einschränkungen: de/limitations.md
-      - Zukünftige Arbeiten: de/future-work.md
-      - Glossar: de/glossary.md
-      - Referenzen: de/references.md
-      - Über uns: de/about.md
-      - Haftungsausschluss: de/disclaimer.md
-      - Impressum: de/impressum.md
-      - Datenschutz: de/privacy.md
+      - Forschung:
+          - Hintergrund: de/background.md
+          - Architektur: de/conceptual-architecture.md
+          - Designprinzipien: de/design-principles.md
+          - Funktionale Übersicht: de/functional-overview.md
+          - Nicht-funktionale Konzepte: de/non-functional.md
+          - Ablaufdiagramme: de/workflow-diagrams.md
+          - Anwendungsfälle: de/use-cases.md
+      - Ausblick:
+          - Einschränkungen: de/limitations.md
+          - Zukünftige Arbeiten: de/future-work.md
+      - Nachschlagen:
+          - Glossar: de/glossary.md
+          - Referenzen: de/references.md
+      - Über uns & Rechtliches:
+          - Über uns: de/about.md
+          - Haftungsausschluss: de/disclaimer.md
+          - Impressum: de/impressum.md
+          - Datenschutz: de/privacy.md
+
+not_in_nav: |
+  /index.md

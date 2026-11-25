@@ -12,7 +12,7 @@ This repository contains the official documentation website for
 
 Install MkDocs:
 
-pip install mkdocs mkdocs-material
+pip install -r requirements.txt
 
 Run locally:
 
