@@ -1035,6 +1035,8 @@ html.or-abyss-on .or-hero__gl {
 }
 @media screen and (max-width: 44.9844em) {
   html.or-abyss-on .or-hero {
+    overflow: hidden;
+    overflow: clip;
     min-height: 0;
     padding: 2.2rem 0 1.4rem;
     margin: 0;
@@ -1241,4 +1243,16 @@ html.or-mobile [data-md-component="palette"] {
 #__search:checked ~ .or-hud {
   opacity: 0;
   pointer-events: none;
+}
+
+/* nothing may push the page sideways on touch screens */
+html.or-abyss-on .md-main,
+html.or-abyss-on .md-container {
+  overflow-x: clip;
+}
+@media screen and (max-width: 44.9844em) {
+  html.or-abyss-on .md-typeset .or-hero__title {
+    font-size: clamp(1.7rem, 8.6vw, 2.3rem);
+    overflow-wrap: break-word;
+  }
 }

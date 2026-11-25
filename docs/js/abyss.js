@@ -292,12 +292,39 @@
 
   /* ---------------- ambient sound (WebAudio, opt in) ---------------- */
   var audio = null;
+
+  // iPhone/iPad: Web Audio is muted by the silent switch unless the page plays as "media".
+  // Newer Safari has navigator.audioSession; older ones need a silent looping <audio>.
+  function silentWavUrl() {
+    var n = 4000, buf = new ArrayBuffer(44 + n), v = new DataView(buf), i;
+    function str(o, t) { for (var k = 0; k < t.length; k++) v.setUint8(o + k, t.charCodeAt(k)); }
+    str(0, "RIFF"); v.setUint32(4, 36 + n, true); str(8, "WAVE"); str(12, "fmt ");
+    v.setUint32(16, 16, true); v.setUint16(20, 1, true); v.setUint16(22, 1, true);
+    v.setUint32(24, 8000, true); v.setUint32(28, 8000, true); v.setUint16(32, 1, true); v.setUint16(34, 8, true);
+    str(36, "data"); v.setUint32(40, n, true);
+    for (i = 0; i < n; i++) v.setUint8(44 + i, 128);
+    return URL.createObjectURL(new Blob([buf], { type: "audio/wav" }));
+  }
+  function unlockMobileAudio() {
+    try { if (navigator.audioSession) navigator.audioSession.type = "playback"; } catch (e) {}
+    try {
+      var el = new Audio(silentWavUrl());
+      el.loop = true;
+      el.setAttribute("playsinline", "");
+      var pr = el.play();
+      if (pr && pr.catch) pr.catch(function () {});
+      return el;
+    } catch (e) { return null; }
+  }
+
   function startSound() {
     var AC = window.AudioContext || window.webkitAudioContext;
     if (!AC) return null;
+    var keepAlive = unlockMobileAudio();
     var ac = new AC();
+    if (ac.state === "suspended" && ac.resume) ac.resume();
     var master = ac.createGain();
-    master.gain.value = 0;
+    master.gain.setValueAtTime(0, ac.currentTime);
     master.connect(ac.destination);
 
     // deep water: brown noise through a breathing low pass
@@ -340,6 +367,7 @@
     return {
       stop: function () {
         clearInterval(pingTimer);
+        if (keepAlive) { try { keepAlive.pause(); } catch (e) {} }
         master.gain.linearRampToValueAtTime(0, ac.currentTime + 0.6);
         setTimeout(function () { ac.close(); }, 700);
       }
