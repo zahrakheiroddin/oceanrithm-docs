@@ -37,7 +37,8 @@ If you contact us via email, we store the data you provide (e.g., name, email ad
 
 ## 4. Cookies and Tracking
 Our website does **not** use tracking cookies, analytics services, or third-party tracking tools.  
-Only technically necessary cookies may be used for website operation.
+Only technically necessary cookies may be used for website operation.  
+To show the opening animation only once per visit, the website stores a single setting in your browser's session storage. It contains no personal data and is deleted automatically when you close the browser tab.
 
 ---
 
@@ -65,15 +66,26 @@ You have the following rights:
 - **Right to restriction of processing** (Art. 18 GDPR)  
 - **Right to data portability** (Art. 20 GDPR)  
 - **Right to object** (Art. 21 GDPR)
+- **Right to lodge a complaint** with a data protection supervisory authority (Art. 77 GDPR), for example the Berlin Commissioner for Data Protection and Freedom of Information (Berliner Beauftragte für Datenschutz und Informationsfreiheit)
 
 To exercise these rights, please contact us at:  
 **info@oceanrithm.com**
 
 ---
 
-## 8. Hosting
-Our website is hosted on servers located within the European Union.  
-The hosting provider processes data solely for the technical operation of the website.
+## 8. Hosting and Content Delivery
+This website is hosted on GitHub Pages, a service of GitHub, Inc., 88 Colin P. Kelly Jr. Street, San Francisco, CA 94107, USA.  
+It is delivered through the network of Cloudflare, Inc., 101 Townsend Street, San Francisco, CA 94107, USA, which also protects the website against attacks.
+
+When you visit the website, your IP address and the technical data listed in section 2 are processed by these providers. According to GitHub, the IP addresses of visitors to GitHub Pages websites are logged and stored for security purposes. We have no access to these logs and do not use them.
+
+**Legal basis:** Art. 6(1)(f) GDPR. Our legitimate interest is the secure and reliable provision of this website.
+
+Personal data may be transferred to the USA. Cloudflare relies on its certification under the EU-U.S. Data Privacy Framework (Art. 45 GDPR). GitHub relies on the EU Standard Contractual Clauses (Art. 46 GDPR) and, where applicable, the EU-U.S. Data Privacy Framework.
+
+Further information: [GitHub Privacy Statement](https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement) and [Cloudflare Privacy Policy](https://www.cloudflare.com/privacypolicy/).
+
+This website does not load fonts, scripts or other content from third-party servers. The Instagram icon is a plain link: no data is sent to Instagram (Meta) unless you click it.
 
 ---
 
@@ -86,4 +98,4 @@ These measures comply with the current state of the art.
 ## 10. Changes to This Privacy Policy
 We may update this Privacy Policy to reflect changes in legal or technical requirements.
 
-Effective date: November 2025
+Effective date: November 2026

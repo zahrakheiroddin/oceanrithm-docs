@@ -1,7 +1,7 @@
 # Glossary
 
 ### Governance  
-High level conceptual regulation of workflow behavior.
+High-level conceptual regulation of workflow behavior.
 
 ### Tenant  
 A conceptual representation of a user or logical group.
@@ -10,7 +10,7 @@ A conceptual representation of a user or logical group.
 Focus on ideas instead of implementation.
 
 ### Workflow  
-A non executable conceptual path.
+A non-executable conceptual path.
 
 ### Observation  
-High level monitoring concept for research.
+High-level monitoring concept for research.

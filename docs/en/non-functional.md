@@ -1,6 +1,6 @@
-# Non Functional Concepts
+# Non-Functional Concepts
 
-These qualities represent high level conceptual properties.
+These qualities represent high-level conceptual properties.
 
 ## Scalability (Abstract)
 Describes theoretical scalability characteristics.
@@ -8,7 +8,7 @@ Describes theoretical scalability characteristics.
 ## Reliability (Conceptual)
 Relates to stability as a research idea.
 
-## Auditability (High Level)
+## Auditability (High-Level)
 Focuses on academic observation patterns.
 
 ## Maintainability (Conceptual)

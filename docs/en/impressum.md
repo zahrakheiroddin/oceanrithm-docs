@@ -1,6 +1,6 @@
 # Legal Disclosure (Impressum)
 
-Information according to § 5 TMG (Germany)
+Information according to § 5 DDG (Germany)
 
 **OceanRithm Solutions UG (haftungsbeschränkt)**  
 Schlieperstraße 78  
@@ -25,8 +25,8 @@ Phone: +49 160 4606948
 ### Liability for Content
 The contents of our website were created with the utmost care.  
 However, we cannot guarantee the accuracy, completeness, or timeliness of the information provided.  
-In accordance with § 7 Abs. 1 TMG, we as service providers are responsible for our own content on these pages under general law.  
-According to §§ 8–10 TMG, we are not obligated to monitor transmitted or stored third-party information or to investigate circumstances that indicate illegal activity.  
+As service providers, we are responsible for our own content on these pages under general law.  
+According to § 7 DDG in conjunction with Art. 8 of Regulation (EU) 2022/2065 (Digital Services Act), we are not obligated to monitor transmitted or stored third-party information or to investigate circumstances that indicate illegal activity.  
 Obligations to remove or block the use of information under general law remain unaffected.  
 Liability in this regard is only possible from the time of knowledge of a specific infringement.  
 Upon notification of such legal violations, we will remove this content immediately.

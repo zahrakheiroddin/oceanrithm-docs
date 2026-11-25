@@ -8,10 +8,10 @@ Es werden keinerlei operative Mechanismen oder Implementierungsdetails angegeben
 <div class="or-layers" markdown>
 
 1. **Interaktionsebene** – Konzeptioneller Einstiegspunkt für Benutzer oder Systeme.  
-2. **Steuerungsebene** – Koordiniert das übergeordnete Workflow Verhalten auf konzeptioneller Ebene.  
-3. **Governance Ebene** – Repräsentiert theoretische Richtlinien  und Policy Konzepte.  
-4. **Tenant Abstraktionsebene** – Konzeptionelle Trennung von Multi User Bereichen.  
-5. **Beobachtungsebene** – Übergeordnete Monitoring  und Forschungssichtbarkeit.  
+2. **Steuerungsebene** – Koordiniert das übergeordnete Workflow-Verhalten auf konzeptioneller Ebene.  
+3. **Governance-Ebene** – Repräsentiert theoretische Richtlinien- und Policy-Konzepte.  
+4. **Tenant-Abstraktionsebene** – Konzeptionelle Trennung von Multi-User-Bereichen.  
+5. **Beobachtungsebene** – Übergeordnete Monitoring- und Forschungssichtbarkeit.  
 
 </div>
 

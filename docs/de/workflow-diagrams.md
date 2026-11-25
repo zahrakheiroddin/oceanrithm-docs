@@ -1,6 +1,6 @@
 # Konzeptionelle Ablaufdiagramme
 
-## Beispiel (Nicht operational)
+## Beispiel (nicht operativ)
 
 
 <div class="or-flow" markdown>
@@ -8,8 +8,8 @@
 Benutzer  
 → Interaktionsebene  
 → Steuerungsebene  
-→ Governance Ebene  
-→ Tenant Abstraktionsebene  
+→ Governance-Ebene  
+→ Tenant-Abstraktionsebene  
 → Beobachtungsebene
 
 </div>

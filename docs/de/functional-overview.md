@@ -4,8 +4,8 @@ Diese Übersicht beschreibt Fähigkeiten auf einem übergeordneten, konzeptionel
 
 ## Konzeptionelle Fähigkeiten
 - Abstrakte Darstellung von Workflows  
-- Multi Tenant Modellierung auf Idee  und Konzeptbasis  
-- Forschungsorientierte Governance Konzepte  
+- Multi-Tenant-Modellierung auf Idee- und Konzeptbasis  
+- Forschungsorientierte Governance-Konzepte  
 - Untersuchung nicht operationaler Szenarien  
 
 ## Hinweise

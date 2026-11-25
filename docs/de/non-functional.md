@@ -1,4 +1,4 @@
-# Nicht funktionale Konzepte
+# Nichtfunktionale Konzepte
 
 Diese Eigenschaften repräsentieren übergeordnete konzeptionelle Merkmale.
 
@@ -9,7 +9,7 @@ Beschreibt theoretische Eigenschaften der Skalierbarkeit.
 Bezieht sich auf Stabilität als forschungsbezogenes Konzept.
 
 ## Prüfbarkeit (Übergeordnet)
-Fokussiert auf akademische Beobachtungs  und Analyseansätze.
+Fokussiert auf akademische Beobachtungs- und Analyseansätze.
 
 ## Wartbarkeit (Konzeptionell)
 Ergibt sich aus Abstraktion und modularer Trennung von Konzepten.

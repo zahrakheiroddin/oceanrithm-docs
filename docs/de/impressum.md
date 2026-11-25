@@ -1,6 +1,6 @@
 # Impressum
 
-Angaben gemäß § 5 TMG
+Angaben gemäß § 5 DDG
 
 **OceanRithm Solutions UG (haftungsbeschränkt)**  
 Schlieperstraße 78  
@@ -25,8 +25,8 @@ Telefon: +49 160 4606948
 ### Haftung für Inhalte
 Die Inhalte unserer Website wurden mit größtmöglicher Sorgfalt erstellt.  
 Für die Richtigkeit, Vollständigkeit und Aktualität der bereitgestellten Inhalte können wir jedoch keine Gewähr übernehmen.  
-Gemäß § 7 Abs. 1 TMG sind wir als Diensteanbieter für eigene Inhalte auf diesen Seiten nach den allgemeinen Gesetzen verantwortlich.  
-Nach §§ 8–10 TMG sind wir als Diensteanbieter jedoch nicht verpflichtet, übermittelte oder gespeicherte fremde Informationen zu überwachen oder nach Umständen zu forschen, die auf eine rechtswidrige Tätigkeit hinweisen.  
+Als Diensteanbieter sind wir für eigene Inhalte auf diesen Seiten nach den allgemeinen Gesetzen verantwortlich.  
+Nach § 7 DDG in Verbindung mit Art. 8 der Verordnung (EU) 2022/2065 (Digital Services Act) sind wir als Diensteanbieter jedoch nicht verpflichtet, übermittelte oder gespeicherte fremde Informationen zu überwachen oder nach Umständen zu forschen, die auf eine rechtswidrige Tätigkeit hinweisen.  
 Verpflichtungen zur Entfernung oder Sperrung der Nutzung von Informationen nach den allgemeinen Gesetzen bleiben hiervon unberührt.  
 Eine diesbezügliche Haftung ist jedoch erst ab dem Zeitpunkt der Kenntnis einer konkreten Rechtsverletzung möglich.  
 Bei Bekanntwerden von entsprechenden Rechtsverletzungen werden wir diese Inhalte umgehend entfernen.

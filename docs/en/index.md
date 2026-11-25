@@ -9,14 +9,14 @@ hide:
 
 <h1 class="or-hero__title">OceanRithm – Conceptual Research Portal</h1>
 
-<p class="or-hero__lead">OceanRithm is a research driven framework focused on advancing secure workflow governance, multi tenant abstraction models, and orchestration theory within modern DevSecOps ecosystems.</p>
+<p class="or-hero__lead">OceanRithm is a research-driven framework focused on advancing secure workflow governance, multi-tenant abstraction models, and orchestration theory within modern DevSecOps ecosystems.</p>
 
 </div>
 
 ![](../images/manta.png){ .or-hero__manta }
 </div>
 
-This portal presents an academically aligned, high level overview of the conceptual foundations behind OceanRithm designed for:
+This portal presents an academically aligned, high-level overview of the conceptual foundations behind OceanRithm, designed for:
 
 <div class="or-chips" markdown>
 <span class="or-chip">:material-school-outline: Academic evaluation</span>
@@ -25,7 +25,7 @@ This portal presents an academically aligned, high level overview of the concept
 <span class="or-chip">:material-strategy: Strategic architectural assessment</span>
 </div>
 
-OceanRithm deliberately abstracts away implementation, deployment, and infrastructure specific details to preserve conceptual clarity and research integrity.  
+OceanRithm deliberately abstracts away implementation, deployment, and infrastructure-specific details to preserve conceptual clarity and research integrity.  
 The emphasis is on **principles, governance, identity boundaries, and secure orchestration logic**.
 
 ## **Scope of the Documentation**
@@ -36,7 +36,7 @@ The emphasis is on **principles, governance, identity boundaries, and secure orc
 
     ---
 
-    A structured exploration of the challenges and gaps in current secure multi tenant CI/CD ecosystems.
+    A structured exploration of the challenges and gaps in current secure multi-tenant CI/CD ecosystems.
 
     [:octicons-arrow-right-24: Background](background.md)
 
@@ -56,16 +56,16 @@ The emphasis is on **principles, governance, identity boundaries, and secure orc
 
     [:octicons-arrow-right-24: Design Principles](design-principles.md)
 
--   :material-puzzle-outline:{ .lg .middle } **Functional & Non Functional Perspectives**
+-   :material-puzzle-outline:{ .lg .middle } **Functional & Non-Functional Perspectives**
 
     ---
 
-    High level functional roles and conceptual non functional constraints shaping the model.
+    High-level functional roles and conceptual non-functional constraints shaping the model.
 
     [:octicons-arrow-right-24: Functional Overview](functional-overview.md)  
     [:octicons-arrow-right-24: Non-Functional Concepts](non-functional.md)
 
--   :material-transit-connection-variant:{ .lg .middle } **Workflow Level Models**
+-   :material-transit-connection-variant:{ .lg .middle } **Workflow-Level Models**
 
     ---
 
@@ -77,7 +77,7 @@ The emphasis is on **principles, governance, identity boundaries, and secure orc
 
     ---
 
-    Abstract scenarios demonstrating how OceanRithm concepts apply to multi tenant DevSecOps environments.
+    Abstract scenarios demonstrating how OceanRithm concepts apply to multi-tenant DevSecOps environments.
 
     [:octicons-arrow-right-24: Use Cases](use-cases.md)
 
@@ -95,7 +95,7 @@ The emphasis is on **principles, governance, identity boundaries, and secure orc
 <div class="or-notice" markdown>
 ## **Important Notice**
 
-This documentation is **conceptual and research focused**.  
+This documentation is **conceptual and research-focused**.  
 It does **not** include source code, deployment procedures, operational workflows, or proprietary implementation details.
 
 The OceanRithm conceptual framework is the intellectual work of:

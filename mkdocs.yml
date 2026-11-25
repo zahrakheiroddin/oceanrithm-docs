@@ -88,7 +88,7 @@ nav:
       - Architektur: de/conceptual-architecture.md
       - Designprinzipien: de/design-principles.md
       - Funktionale Übersicht: de/functional-overview.md
-      - Nicht-funktionale Konzepte: de/non-functional.md
+      - Nichtfunktionale Konzepte: de/non-functional.md
       - Ablaufdiagramme: de/workflow-diagrams.md
       - Anwendungsfälle: de/use-cases.md
       - Einschränkungen: de/limitations.md

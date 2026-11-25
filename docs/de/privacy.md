@@ -36,7 +36,8 @@ Wenn Sie uns per E-Mail kontaktieren, speichern wir die von Ihnen übermittelten
 
 ## 4. Cookies und Tracking
 Unsere Website verwendet **keine Tracking-Cookies** und **keine Tools wie Google Analytics**.  
-Es können lediglich technisch notwendige Cookies eingesetzt werden, die für den Betrieb der Website erforderlich sind.
+Es können lediglich technisch notwendige Cookies eingesetzt werden, die für den Betrieb der Website erforderlich sind.  
+Damit die Eingangsanimation nur einmal pro Besuch angezeigt wird, speichert die Website eine einzelne Einstellung im Sitzungsspeicher (Session Storage) Ihres Browsers. Diese enthält keine personenbezogenen Daten und wird beim Schließen des Browser-Tabs automatisch gelöscht.
 
 ---
 
@@ -64,15 +65,26 @@ Sie haben gemäß DSGVO folgende Rechte:
 - **Einschränkung der Verarbeitung** (Art. 18 DSGVO)  
 - **Datenübertragbarkeit** (Art. 20 DSGVO)  
 - **Widerspruch** gegen die Verarbeitung (Art. 21 DSGVO)
+- **Beschwerde** bei einer Datenschutz-Aufsichtsbehörde (Art. 77 DSGVO), z. B. bei der Berliner Beauftragten für Datenschutz und Informationsfreiheit
 
 Für die Ausübung Ihrer Rechte senden Sie eine E-Mail an:  
 **info@oceanrithm.com**
 
 ---
 
-## 8. Hosting
-Unsere Website wird auf Servern innerhalb der Europäischen Union betrieben.  
-Der Hosting-Anbieter verarbeitet Daten ausschließlich im Rahmen der technischen Bereitstellung dieser Website.
+## 8. Hosting und Auslieferung
+Diese Website wird über GitHub Pages gehostet, einen Dienst der GitHub, Inc., 88 Colin P. Kelly Jr. Street, San Francisco, CA 94107, USA.  
+Ausgeliefert wird sie über das Netzwerk der Cloudflare, Inc., 101 Townsend Street, San Francisco, CA 94107, USA, die die Website zusätzlich vor Angriffen schützt.
+
+Beim Besuch der Website werden Ihre IP-Adresse und die in Abschnitt 2 genannten technischen Daten von diesen Anbietern verarbeitet. Nach Angaben von GitHub werden die IP-Adressen der Besucher von GitHub-Pages-Websites aus Sicherheitsgründen protokolliert und gespeichert. Wir haben keinen Zugriff auf diese Protokolle und nutzen sie nicht.
+
+**Rechtsgrundlage:** Art. 6 Abs. 1 lit. f DSGVO. Unser berechtigtes Interesse liegt in der sicheren und zuverlässigen Bereitstellung dieser Website.
+
+Dabei können personenbezogene Daten in die USA übermittelt werden. Cloudflare stützt sich auf seine Zertifizierung nach dem EU-U.S. Data Privacy Framework (Art. 45 DSGVO). GitHub stützt sich auf die EU-Standardvertragsklauseln (Art. 46 DSGVO) und, soweit anwendbar, auf das EU-U.S. Data Privacy Framework.
+
+Weitere Informationen: [Datenschutzerklärung von GitHub](https://docs.github.com/de/site-policy/privacy-policies/github-general-privacy-statement) und [Datenschutzerklärung von Cloudflare](https://www.cloudflare.com/de-de/privacypolicy/).
+
+Diese Website lädt keine Schriftarten, Skripte oder sonstigen Inhalte von Servern Dritter. Das Instagram-Symbol ist ein einfacher Link: Erst wenn Sie darauf klicken, werden Daten an Instagram (Meta) übertragen.
 
 ---
 
@@ -85,4 +97,4 @@ Diese Maßnahmen entsprechen dem aktuellen Stand der Technik.
 ## 10. Änderungen dieser Datenschutzerklärung
 Wir behalten uns vor, diese Datenschutzerklärung bei Bedarf zu aktualisieren, um sie an geänderte gesetzliche oder technische Anforderungen anzupassen.
 
-Stand: November 2025
+Stand: November 2026

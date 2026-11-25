@@ -1,6 +1,6 @@
 # Conceptual Workflow Diagrams
 
-## Example (Non Operational)
+## Example (Non-Operational)
 
 
 <div class="or-flow" markdown>
@@ -18,4 +18,4 @@ User
 ### Notes
 - No internal logic is shown.
 - No technical flow is exposed.
-- Fully conceptual and non executable.
+- Fully conceptual and non-executable.
