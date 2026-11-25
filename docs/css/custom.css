@@ -946,8 +946,8 @@ html.or-abyss-on .md-footer-meta {
     padding: 1.1rem 1rem 1.4rem;
     border-radius: 18px;
   }
-  html.or-abyss-on [data-md-color-scheme="default"] .md-content__inner,
-  html.or-abyss-on body[data-md-color-scheme="default"] .md-content__inner {
+  html.or-abyss-on [data-md-color-scheme="default"] .md-content__inner:not(:has(.or-hero)),
+  html.or-abyss-on body[data-md-color-scheme="default"] .md-content__inner:not(:has(.or-hero)) {
     background: rgba(255, 255, 255, 0.86);
   }
 }
@@ -1526,4 +1526,105 @@ html.or-abyss-on .md-typeset .or-layers ol li::before {
   .md-header__button { padding: 0.25rem; }
   .md-header__topic { font-size: 0.76rem; }
   .or-lang-btn { padding: 3px 5px; }
+}
+
+
+
+/* =========================================================
+   20) Hero on iPad and phones (PC stays exactly as it was):
+   smaller type, manta never under or over the text.
+   iPad: text left, manta right.  Phone: text, then manta.
+   Same in night and day.
+   ========================================================= */
+@media screen and (max-width: 76.2344em) {
+  html.or-abyss-on .or-hero__content {
+    position: relative;
+    z-index: 1;
+  }
+  html.or-abyss-on .md-typeset .or-hero__title {
+    line-height: 1.06;
+    margin-bottom: 1rem;
+  }
+  html.or-abyss-on .md-typeset .or-hero__lead {
+    line-height: 1.6;
+    color: rgba(236, 248, 251, 0.9);
+  }
+  /* day: white type stays readable on the lighter water */
+  html.or-abyss-on body[data-md-color-scheme="default"] .md-typeset .or-hero__title {
+    filter: drop-shadow(0 2px 14px rgba(4, 30, 50, 0.55));
+  }
+  html.or-abyss-on body[data-md-color-scheme="default"] .md-typeset .or-hero__lead {
+    color: #ffffff;
+    text-shadow: 0 1px 10px rgba(4, 30, 50, 0.6);
+  }
+}
+
+/* iPad and small laptops: side by side, a bit smaller */
+@media screen and (min-width: 45em) and (max-width: 76.2344em) {
+  html.or-abyss-on .or-hero { min-height: 0; padding: 2.4rem 0 2rem; }
+  html.or-abyss-on .or-hero__content { max-width: 54%; }
+  html.or-abyss-on .md-typeset .or-hero__title { font-size: clamp(1.7rem, 3.6vw, 2.4rem); }
+  html.or-abyss-on .md-typeset .or-hero__lead { font-size: 0.8rem; }
+  html.or-abyss-on .or-hero__gl,
+  html.or-mobile.or-abyss-on .or-hero__gl {
+    width: 46%;
+    height: 100%;
+    right: 0;
+    top: 0;
+    opacity: 1;
+  }
+}
+
+/* phones: stacked, manta gets its own space below the text */
+@media screen and (max-width: 44.9844em) {
+  html.or-abyss-on .or-hero {
+    flex-direction: column;
+    align-items: stretch;
+    padding: 1.6rem 0 0.6rem;
+  }
+  html.or-abyss-on .or-hero__content { max-width: 100%; }
+  html.or-abyss-on .md-typeset .or-hero__title { font-size: clamp(1.45rem, 7vw, 1.85rem); }
+  html.or-abyss-on .md-typeset .or-hero__lead { font-size: 0.78rem; }
+  html.or-abyss-on .or-hero__gl,
+  html.or-mobile.or-abyss-on .or-hero__gl {
+    position: relative;
+    inset: auto;
+    right: auto;
+    top: auto;
+    width: 100%;
+    height: min(70vw, 300px);
+    margin-top: 0.4rem;
+    opacity: 1;
+  }
+  /* still picture (no WebGL / reduced motion): also below the text */
+  html.or-abyss-on .md-typeset .or-hero__manta {
+    position: static;
+    display: block;
+    width: 62%;
+    margin: 0.6rem auto 0;
+    opacity: 1;
+  }
+  html.or-abyss-on .or-hero--live .or-hero__manta { display: none; }
+}
+
+/* day: the home text that floats on the water (outside the cards) stays light and readable */
+@media screen and (max-width: 76.2344em) {
+  html.or-abyss-on body[data-md-color-scheme="default"] .md-content__inner:has(.or-hero) > p,
+  html.or-abyss-on body[data-md-color-scheme="default"] .md-content__inner:has(.or-hero) > h2 {
+    color: #ffffff;
+    text-shadow: 0 1px 10px rgba(4, 30, 50, 0.6);
+  }
+  html.or-abyss-on body[data-md-color-scheme="default"] .md-content__inner:has(.or-hero) > p strong {
+    color: #ffffff;
+  }
+  html.or-abyss-on body[data-md-color-scheme="default"] .md-content__inner:has(.or-hero) > h2 {
+    border-bottom-color: rgba(255, 255, 255, 0.35);
+  }
+  html.or-abyss-on body[data-md-color-scheme="default"] .md-typeset .or-chip {
+    --fill: rgba(4, 30, 50, 0.4);
+    color: #ffffff;
+  }
+  html.or-abyss-on body[data-md-color-scheme="default"] .md-typeset .or-chip .twemoji svg {
+    fill: #8ff0f5;
+  }
 }

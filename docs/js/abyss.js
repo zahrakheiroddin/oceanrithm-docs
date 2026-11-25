@@ -17,6 +17,8 @@
   var reduce = OR.reduceMotion;
   var root = document.documentElement;
   var small = Math.min(window.innerWidth, window.innerHeight) < 600;
+  // iPad and phones: slightly deeper day water so white text stays readable
+  var deepDay = window.innerWidth < 1220;
 
   /* ---------------- canvas + context ---------------- */
   var canvas = document.createElement("canvas");
@@ -61,8 +63,8 @@
       "void main(){",
       "  vec2 uv = gl_FragCoord.xy / uRes;",
       "  float d = clamp(uDepth, 0.0, 1.0);",
-      "  vec3 top = mix(vec3(0.04, 0.26, 0.40), vec3(0.55, 0.86, 0.93), uLight);",
-      "  vec3 bot = mix(vec3(0.004, 0.018, 0.035), vec3(0.16, 0.50, 0.64), uLight);",
+      "  vec3 top = mix(vec3(0.04, 0.26, 0.40), " + (deepDay ? "vec3(0.42, 0.74, 0.85)" : "vec3(0.55, 0.86, 0.93)") + ", uLight);",
+      "  vec3 bot = mix(vec3(0.004, 0.018, 0.035), " + (deepDay ? "vec3(0.09, 0.36, 0.50)" : "vec3(0.16, 0.50, 0.64)") + ", uLight);",
       "  top = mix(top, bot * 1.8 + vec3(0.0, 0.02, 0.04), d * 0.75);",
       "  vec3 col = mix(bot, top, pow(uv.y, 1.5));",
       "  vec2 p = uv - vec2(0.5 + 0.08 * sin(uT * 0.04), 1.35);",
