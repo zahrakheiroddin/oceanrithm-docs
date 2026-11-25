@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+{%- for file in pages -%}
+    {% if not file.page.is_link and (file.page.abs_url or file.page.canonical_url) %}
+    <url>
+         <loc>{% if file.page.canonical_url %}{{ file.page.canonical_url|e }}{% else %}{{ file.page.abs_url|e }}{% endif %}</loc>
+         {% if file.page.update_date %}<lastmod>{{file.page.update_date}}</lastmod>{% endif %}
+         {%- if file.page.is_homepage or file.page.url in ["en/", "de/"] %}
+         <image:image><image:loc>{{ config.site_url }}images/og-image.jpg</image:loc></image:image>
+         <image:image><image:loc>{{ config.site_url }}images/manta.png</image:loc></image:image>
+         <image:image><image:loc>{{ config.site_url }}images/logo-512.png</image:loc></image:image>
+         <image:image><image:loc>{{ config.site_url }}images/logo.png</image:loc></image:image>
+         {%- endif %}
+    </url>
+    {%- endif -%}
+{% endfor %}
+</urlset>

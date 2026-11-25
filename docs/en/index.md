@@ -15,7 +15,7 @@ hide:
 
 </div>
 
-![](../images/manta.png){ .or-hero__manta }
+![OceanRithm manta ray](../images/manta.png){ .or-hero__manta }
 </div>
 
 This portal presents an academically aligned, high-level overview of the conceptual foundations behind OceanRithm, designed for:

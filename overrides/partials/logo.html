@@ -1,0 +1,7 @@
+{#- Same as the theme's logo partial, with a descriptive alt text for search engines -#}
+{% if config.theme.logo %}
+  <img src="{{ config.theme.logo | url }}" alt="OceanRithm logo">
+{% else %}
+  {% set icon = config.theme.icon.logo or "material/library" %}
+  {% include ".icons/" ~ icon ~ ".svg" %}
+{% endif %}
