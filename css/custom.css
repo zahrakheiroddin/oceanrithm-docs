@@ -842,8 +842,8 @@
   --or-mono: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
 }
 [data-md-color-scheme="default"] {
-  --or-glass: rgba(255, 255, 255, 0.74);
-  --or-glass-soft: rgba(255, 255, 255, 0.5);
+  --or-glass: rgba(255, 255, 255, 0.6);
+  --or-glass-soft: rgba(255, 255, 255, 0.42);
   --or-glass-line: rgba(15, 76, 110, 0.14);
 }
 
@@ -948,7 +948,7 @@ html.or-abyss-on .md-footer-meta {
   }
   html.or-abyss-on [data-md-color-scheme="default"] .md-content__inner:not(:has(.or-hero)),
   html.or-abyss-on body[data-md-color-scheme="default"] .md-content__inner:not(:has(.or-hero)) {
-    background: rgba(255, 255, 255, 0.86);
+    background: rgba(255, 255, 255, 0.74);
   }
 }
 
@@ -1563,8 +1563,8 @@ html.or-abyss-on .md-typeset .or-layers ol li::before {
 @media screen and (min-width: 45em) and (max-width: 76.2344em) {
   html.or-abyss-on .or-hero { min-height: 0; padding: 2.4rem 0 2rem; }
   html.or-abyss-on .or-hero__content { max-width: 54%; }
-  html.or-abyss-on .md-typeset .or-hero__title { font-size: clamp(1.7rem, 3.6vw, 2.4rem); }
-  html.or-abyss-on .md-typeset .or-hero__lead { font-size: 0.8rem; }
+  html.or-abyss-on .md-typeset .or-hero__title { font-size: clamp(2rem, 4.4vw, 2.9rem); }
+  html.or-abyss-on .md-typeset .or-hero__lead { font-size: 0.9rem; }
   html.or-abyss-on .or-hero__gl,
   html.or-mobile.or-abyss-on .or-hero__gl {
     width: 46%;
@@ -1575,36 +1575,41 @@ html.or-abyss-on .md-typeset .or-layers ol li::before {
   }
 }
 
-/* phones: stacked, manta gets its own space below the text */
+/* phones: like PC and iPad, text left and a smaller manta right, never overlapping */
 @media screen and (max-width: 44.9844em) {
   html.or-abyss-on .or-hero {
-    flex-direction: column;
-    align-items: stretch;
-    padding: 1.6rem 0 0.6rem;
+    flex-direction: row;
+    align-items: center;
+    padding: 1.4rem 0 1rem;
   }
-  html.or-abyss-on .or-hero__content { max-width: 100%; }
-  html.or-abyss-on .md-typeset .or-hero__title { font-size: clamp(1.45rem, 7vw, 1.85rem); }
-  html.or-abyss-on .md-typeset .or-hero__lead { font-size: 0.78rem; }
+  html.or-abyss-on .or-hero__content { max-width: 60%; }
+  html.or-abyss-on .md-typeset .or-hero__title {
+    font-size: clamp(1.05rem, 5.4vw, 1.35rem);
+    margin-bottom: 0.6rem;
+  }
+  html.or-abyss-on .md-typeset .or-hero__lead {
+    font-size: 0.64rem;
+    line-height: 1.55;
+  }
   html.or-abyss-on .or-hero__gl,
   html.or-mobile.or-abyss-on .or-hero__gl {
-    position: relative;
-    inset: auto;
-    right: auto;
-    top: auto;
-    width: 100%;
-    height: min(70vw, 300px);
-    margin-top: 0.4rem;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 40%;
+    height: 100%;
+    margin: 0;
     opacity: 1;
   }
-  /* still picture (no WebGL / reduced motion): also below the text */
+  /* still picture (no WebGL / reduced motion): same place */
   html.or-abyss-on .md-typeset .or-hero__manta {
-    position: static;
-    display: block;
-    width: 62%;
-    margin: 0.6rem auto 0;
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 36%;
     opacity: 1;
   }
-  html.or-abyss-on .or-hero--live .or-hero__manta { display: none; }
 }
 
 /* day: the home text that floats on the water (outside the cards) stays light and readable */
@@ -1627,4 +1632,14 @@ html.or-abyss-on .md-typeset .or-layers ol li::before {
   html.or-abyss-on body[data-md-color-scheme="default"] .md-typeset .or-chip .twemoji svg {
     fill: #8ff0f5;
   }
+}
+
+/* day: a little more glass on cards and panels (light shine on the top edge) */
+html.or-abyss-on body[data-md-color-scheme="default"] .md-typeset .grid.cards > ul > li,
+html.or-abyss-on body[data-md-color-scheme="default"] .md-content__inner:not(:has(.or-hero)) {
+  -webkit-backdrop-filter: blur(16px) saturate(160%);
+  backdrop-filter: blur(16px) saturate(160%);
+}
+html.or-abyss-on body[data-md-color-scheme="default"] .md-typeset .grid.cards > ul > li {
+  --fill: rgba(255, 255, 255, 0.56);
 }

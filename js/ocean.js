@@ -397,7 +397,7 @@
           M.ry(cx * 0.45 + Math.sin(T * 0.4) * 0.08),
           M.rx(-0.2 + cy * 0.3),
           M.rz(-0.1 + Math.sin(T * 0.7) * 0.06),
-          M.sc(phone ? 1.75 : 1.35)
+          M.sc(phone ? 0.82 : 1.35)
         );
         manta.draw({ mvp: mvp, t: T, amp: 0.26, speed: 2.2, fogNear: 100, fogFar: 101,
           alpha: Math.min(1, T / 0.6) });
