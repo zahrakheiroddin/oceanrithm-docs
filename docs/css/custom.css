@@ -1184,10 +1184,7 @@ html.or-abyss-on .md-typeset .or-notice {
 /* =========================================================
    15) Phones and tablets
    ========================================================= */
-/* always dark on touch devices: no light/dark switch there */
-html.or-mobile [data-md-component="palette"] {
-  display: none;
-}
+/* touch devices: dark by default, the light/dark switch stays available like on desktop */
 
 /* the ocean canvas keeps the full screen height while the address bar moves */
 @media screen and (max-width: 59.9844em) {
@@ -1495,4 +1492,38 @@ html.or-abyss-on .md-typeset .or-layers ol li::before {
   .md-header__title {
     margin-left: 0.15rem;
   }
+}
+
+/* phones: room for menu, logo, name, day/night, search and EN/DE in one row */
+@media screen and (max-width: 29.9844em) {
+  .md-header__button {
+    margin: 0.1rem;
+    padding: 0.3rem;
+  }
+  .md-header__button.md-logo {
+    padding: 0.2rem;
+    margin-left: 0;
+  }
+  .md-header__button.md-logo img {
+    height: 1.3rem;
+  }
+  .md-header__title {
+    margin-left: 0.1rem;
+    margin-right: 0.2rem;
+  }
+  .md-header__topic {
+    font-size: 0.82rem;
+  }
+  .or-lang-switcher {
+    margin-left: 0;
+    font-size: 0.55rem;
+  }
+  .or-lang-btn {
+    padding: 3px 6px;
+  }
+}
+@media screen and (max-width: 23.4375em) {
+  .md-header__button { padding: 0.25rem; }
+  .md-header__topic { font-size: 0.76rem; }
+  .or-lang-btn { padding: 3px 5px; }
 }
