@@ -44,12 +44,12 @@ extra:
       name: OceanRithm on Instagram
 
 extra_css:
-  - css/custom.css?v=8
+  - css/custom.css?v=9
 
 extra_javascript:
-  - js/lang-switcher.js?v=8
-  - js/ocean.js?v=8
-  - js/abyss.js?v=8
+  - js/lang-switcher.js?v=9
+  - js/ocean.js?v=9
+  - js/abyss.js?v=9
 
 markdown_extensions:
   - attr_list
