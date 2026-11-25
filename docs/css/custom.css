@@ -1643,3 +1643,32 @@ html.or-abyss-on body[data-md-color-scheme="default"] .md-content__inner:not(:ha
 html.or-abyss-on body[data-md-color-scheme="default"] .md-typeset .grid.cards > ul > li {
   --fill: rgba(255, 255, 255, 0.56);
 }
+
+/* =========================================================
+   21) Home: less empty space between the header and the hero
+   title, on every device.
+   ========================================================= */
+html.or-abyss-on .md-main__inner:has(.or-hero) { margin-top: 0.6rem; }
+html.or-abyss-on .md-content__inner:has(.or-hero) {
+  margin-top: 0;
+  padding-top: 0;
+}
+html.or-abyss-on .md-content__inner:has(.or-hero)::before { height: 0; }
+html.or-abyss-on .or-hero {
+  padding-top: 1rem;
+  align-items: flex-start;
+}
+@media screen and (max-width: 76.2344em) {
+  html.or-abyss-on .or-hero { padding-top: 0.8rem; align-items: center; }
+}
+@media screen and (max-width: 44.9844em) {
+  html.or-abyss-on .or-hero { padding-top: 0.6rem; }
+}
+/* PC: the manta keeps its size, the text below keeps its old distance */
+@media screen and (min-width: 76.25em) {
+  html.or-abyss-on .or-hero { margin-bottom: -1.5rem; }
+  html.or-abyss-on .md-content__inner:has(.or-hero) > :not(.or-hero) {
+    position: relative;
+    z-index: 1;
+  }
+}
