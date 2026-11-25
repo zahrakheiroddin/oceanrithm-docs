@@ -1,12 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
     <url>
          <loc>https://oceanrithm.com/</loc>
          <lastmod>2026-11-25</lastmod>
+         <image:image><image:loc>https://oceanrithm.com/images/og-image.jpg</image:loc></image:image>
+         <image:image><image:loc>https://oceanrithm.com/images/manta.png</image:loc></image:image>
+         <image:image><image:loc>https://oceanrithm.com/images/logo-512.png</image:loc></image:image>
+         <image:image><image:loc>https://oceanrithm.com/images/logo.png</image:loc></image:image>
     </url>
     <url>
          <loc>https://oceanrithm.com/de/</loc>
          <lastmod>2026-11-25</lastmod>
+         <image:image><image:loc>https://oceanrithm.com/images/og-image.jpg</image:loc></image:image>
+         <image:image><image:loc>https://oceanrithm.com/images/manta.png</image:loc></image:image>
+         <image:image><image:loc>https://oceanrithm.com/images/logo-512.png</image:loc></image:image>
+         <image:image><image:loc>https://oceanrithm.com/images/logo.png</image:loc></image:image>
     </url>
     <url>
          <loc>https://oceanrithm.com/de/about/</loc>
@@ -71,6 +79,10 @@
     <url>
          <loc>https://oceanrithm.com/en/</loc>
          <lastmod>2026-11-25</lastmod>
+         <image:image><image:loc>https://oceanrithm.com/images/og-image.jpg</image:loc></image:image>
+         <image:image><image:loc>https://oceanrithm.com/images/manta.png</image:loc></image:image>
+         <image:image><image:loc>https://oceanrithm.com/images/logo-512.png</image:loc></image:image>
+         <image:image><image:loc>https://oceanrithm.com/images/logo.png</image:loc></image:image>
     </url>
     <url>
          <loc>https://oceanrithm.com/en/about/</loc>
