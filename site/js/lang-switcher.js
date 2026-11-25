@@ -1,80 +1,63 @@
-// Language switcher for MkDocs Material header
-document.addEventListener("DOMContentLoaded", () => {
-  // Find the header container where we will inject the switcher
-  const headerInner = document.querySelector(".md-header__inner");
-  if (!headerInner) return;
+// EN | DE switcher in the Material header.
+// Works with instant navigation: the button is created once and its
+// active state is refreshed on every page change.
+(function () {
+  "use strict";
 
-  // Create language switcher container and buttons (EN | DE)
-  const switcher = document.createElement("div");
-  switcher.className = "or-lang-switcher";
-  switcher.innerHTML = `
-    <button data-lang="en" class="or-lang-btn or-lang-active">EN</button>
-    <span class="or-lang-sep">|</span>
-    <button data-lang="de" class="or-lang-btn">DE</button>
-  `;
-  headerInner.appendChild(switcher);
-
-  const buttons = switcher.querySelectorAll(".or-lang-btn");
-
-  // Detect current language from URL path
   function detectLang(pathname) {
-    if (pathname.includes("/de/")) return "de";
-    if (pathname.includes("/en/")) return "en";
-    // Default language
-    return "en";
+    return /\/de\//.test(pathname) ? "de" : "en";
   }
 
-  // Split URL into: base part + /en/|/de/ + page path
-  // Example: /en/background/  → base="", lang="/en/", page="background/"
-  // Example: /oceanrithm-docs/en/background/ → base="/oceanrithm-docs", page="background/"
-  function getBaseAndPage(pathname) {
-    const match = pathname.match(/^(.*?)(\/en\/|\/de\/)(.*)$/);
-    if (!match) {
-      // If URL doesn't contain /en/ or /de/, treat everything as base
-      return { base: pathname.replace(/\/+$/, ""), page: "" };
-    }
-    return {
-      base: match[1] || "",
-      page: match[3] || ""
-    };
+  // Split /base/en/page/ into base and page so the same page opens in the other language
+  function targetUrl(lang) {
+    var loc = window.location;
+    var m = loc.pathname.match(/^(.*?)(\/en\/|\/de\/)(.*)$/);
+    var base = m ? m[1] : loc.pathname.replace(/\/+$/, "");
+    var page = m ? m[3] : "";
+    return (base || "") + "/" + lang + "/" + page + (loc.search || "") + (loc.hash || "");
   }
 
-  // Build target URL when user switches language
-  function buildTargetUrl(targetLang) {
-    const { pathname, search, hash } = window.location;
-    const currentLang = detectLang(pathname);
-    const { base, page } = getBaseAndPage(pathname);
+  function ensureSwitcher() {
+    var header = document.querySelector(".md-header__inner");
+    if (!header) return null;
+    var sw = header.querySelector(".or-lang-switcher");
+    if (sw) return sw;
 
-    // Target language segment, e.g. "/en/" or "/de/"
-    const langSegment = "/" + targetLang + "/";
+    sw = document.createElement("div");
+    sw.className = "or-lang-switcher";
+    sw.setAttribute("role", "group");
+    sw.setAttribute("aria-label", "Language");
+    sw.innerHTML =
+      '<button type="button" data-lang="en" class="or-lang-btn" lang="en">EN</button>' +
+      '<button type="button" data-lang="de" class="or-lang-btn" lang="de">DE</button>';
+    header.appendChild(sw);
 
-    // Keep the same page slug if possible
-    const targetPage = page || "";
-
-    // Reconstruct the URL: base + /lang/ + page + query + hash
-    const targetPath = (base || "") + langSegment + targetPage;
-    return targetPath + (search || "") + (hash || "");
+    sw.addEventListener("click", function (e) {
+      var btn = e.target.closest(".or-lang-btn");
+      if (!btn) return;
+      var lang = btn.dataset.lang;
+      if (lang === detectLang(window.location.pathname)) return;
+      window.location.href = targetUrl(lang);
+    });
+    return sw;
   }
 
-  // Visually mark the active language button
-  function updateActive(lang) {
-    buttons.forEach(btn => {
-      btn.classList.toggle("or-lang-active", btn.dataset.lang === lang);
+  function refresh() {
+    var sw = ensureSwitcher();
+    if (!sw) return;
+    var current = detectLang(window.location.pathname);
+    Array.prototype.forEach.call(sw.querySelectorAll(".or-lang-btn"), function (b) {
+      var on = b.dataset.lang === current;
+      b.classList.toggle("or-lang-active", on);
+      b.setAttribute("aria-pressed", on ? "true" : "false");
     });
   }
 
-  // Initialize active state based on current URL
-  const currentLang = detectLang(window.location.pathname);
-  updateActive(currentLang);
-
-  // Handle language switch on button click
-  buttons.forEach(btn => {
-    btn.addEventListener("click", () => {
-      const targetLang = btn.dataset.lang;
-      if (targetLang === currentLang) return; // No change
-
-      const targetUrl = buildTargetUrl(targetLang);
-      window.location.href = targetUrl;
-    });
-  });
-});
+  if (window.document$ && typeof window.document$.subscribe === "function") {
+    window.document$.subscribe(refresh);
+  } else if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", refresh);
+  } else {
+    refresh();
+  }
+})();

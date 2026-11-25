@@ -1,194 +1,834 @@
-/* -------------------------
-   1) HEADER GRADIENT
-   ------------------------- */
-/* Apply OceanRithm gradient to the top navigation bar */
+/* =========================================================
+   OceanRithm theme for Material for MkDocs
+   Colors taken from the manta logo: deep navy, ocean blue, teal
+   ========================================================= */
+
+/* ---------- 1) Self-hosted fonts (no Google requests) ---------- */
+@font-face {
+  font-family: "Inter";
+  src: url("../fonts/inter.woff2") format("woff2");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Space Grotesk";
+  src: url("../fonts/space-grotesk.woff2") format("woff2");
+  font-weight: 300 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  --or-navy: #0b2a45;
+  --or-deep: #0f4c6e;
+  --or-blue: #1b75bb;
+  --or-teal: #12a8b3;
+  --or-teal-soft: #b2e9f6;
+  --or-gradient: linear-gradient(120deg, #0b2a45 0%, #0f4c6e 45%, #1b75bb 75%, #12a8b3 100%);
+  --or-radius: 14px;
+
+  --md-text-font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --md-code-font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+}
+
+/* ---------- 2) Brand palette (light + dark) ---------- */
+[data-md-color-primary="custom"] {
+  --md-primary-fg-color: #0f4c6e;
+  --md-primary-fg-color--light: #1b75bb;
+  --md-primary-fg-color--dark: #0b2a45;
+  --md-primary-bg-color: #ffffff;
+  --md-primary-bg-color--light: rgba(255, 255, 255, 0.75);
+}
+[data-md-color-accent="custom"] {
+  --md-accent-fg-color: #12a8b3;
+  --md-accent-fg-color--transparent: rgba(18, 168, 179, 0.12);
+  --md-accent-bg-color: #ffffff;
+}
+
+[data-md-color-scheme="default"] {
+  --md-typeset-a-color: #1b75bb;
+  --md-default-bg-color: #fbfdfe;
+}
+
+[data-md-color-scheme="slate"] {
+  --md-hue: 205;
+  --md-default-bg-color: #0a1826;
+  --md-typeset-a-color: #4fd1db;
+  --md-primary-fg-color: #0b2a45;
+}
+
+/* ---------- 3) Typography ---------- */
+.md-typeset h1,
+.md-typeset h2,
+.md-typeset h3,
+.md-header__topic,
+.or-hero__title {
+  font-family: "Space Grotesk", var(--md-text-font-family);
+  letter-spacing: -0.01em;
+}
+
+.md-typeset h1 {
+  font-weight: 700;
+  color: var(--md-default-fg-color);
+  background: var(--or-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+[data-md-color-scheme="slate"] .md-typeset h1 {
+  background: linear-gradient(120deg, #e6f7fb, #4fd1db);
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
+.md-typeset h2 {
+  font-weight: 600;
+  padding-bottom: 0.3rem;
+  border-bottom: 2px solid var(--md-accent-fg-color--transparent);
+}
+.md-typeset h3 {
+  font-weight: 600;
+  color: var(--md-primary-fg-color);
+}
+[data-md-color-scheme="slate"] .md-typeset h3 {
+  color: #7fdbe3;
+}
+
+/* ---------- 4) Header + tabs ---------- */
+.md-header,
+.md-tabs {
+  background: var(--or-gradient);
+  color: #fff;
+}
 .md-header {
-    background: linear-gradient(to right, #FCFFFF, #45C7E8) !important;
+  box-shadow: 0 2px 12px rgba(11, 42, 69, 0.25);
 }
 
-/* Ensure header text and buttons remain readable */
-.md-header__title,
-.md-header a,
-.md-header__button {
-    color: black !important;
+.md-header__button.md-logo img,
+.md-header__button.md-logo svg {
+  height: 2rem;
+  width: auto;
 }
-
-/* Force logo + title to stick tightly on the left */
-.md-header__inner {
-    display: flex !important;
-    align-items: center !important;
-}
-
-/* Remove default spacing between logo and title */
-.md-header__button.md-logo {
-    margin: 0 !important;
-    padding: 0 !important;
-}
-
-.md-header__title {
-    margin-left: 6px !important;  /* reduce distance between logo & text */
-    padding: 0 !important;
-}
-
-/* Optional: adjust the logo size */
-.md-logo img {
-    height: 80px !important;
-}
-
-/* Optional: make title vertically centered with logo */
 .md-header__topic {
-    display: flex !important;
-    align-items: center !important;
-    font-size: 1.35rem !important;   /* increase title size */
-    font-weight: 600 !important;
+  font-weight: 700;
+  font-size: 1.05rem;
 }
 
-/* -------------------------
-   2) MANTA BACKGROUND – STABLE VERSION
-   (Safe version: does not break layout)
-   ------------------------- */
-
-/* Set a clean white base background and allow positioning */
-body {
-    background: #ffffff !important;
-    position: relative;
+.md-tabs__link {
+  font-weight: 500;
+  opacity: 0.8;
+}
+.md-tabs__link--active,
+.md-tabs__link:hover {
+  opacity: 1;
+  color: #fff;
+}
+.md-tabs__item--active .md-tabs__link {
+  border-bottom: 2px solid #b2e9f6;
+  padding-bottom: 2px;
 }
 
-/* Add a manta ray watermark across the entire page */
-body::after {
-    content: "";
-    position: fixed;
-    inset: 0;
-    background-image: url("/images/manta.png");
-    background-repeat: no-repeat;
-    background-position: center 20%;   /* Adjust vertical position if needed */
-    background-size: 45%;              /* Scale of manta image */
-    opacity: 0.08;                     /* Image transparency */
-    filter: grayscale(100%);           /* Desaturate for subtle look */
-    pointer-events: none;              /* Make sure it doesn’t block clicks */
-    z-index: -1;                       /* Keep the image behind all content */
-}
-/* Hide default Material footer text */
-.md-footer {
-    font-size: 0 !important;
-}
-/* Hide the "Made with Material for MkDocs" footer */
-.md-footer-meta,
-.md-footer__inner,
-.md-footer .md-footer-meta,
-.md-footer .md-footer__inner {
-    display: none !important;
+/* Search field on the gradient header */
+.md-search__form {
+  border-radius: 999px;
+  background-color: rgba(255, 255, 255, 0.14);
 }
 
-/* Custom footer text: OceanRithm Solutions */
-/* Custom footer text: OceanRithm Solutions */
-.md-footer::after {
-    content: "© 2025 OceanRithm Solutions UG (haftungsbeschränkt) – Research Documentation Portal";
-    display: block;
-    text-align: center;
-    padding: 8px 0;
-    font-size: 0.85rem;
-    color: #ffffff;      /* white text */
-    opacity: 0.9;
-}
-/* Language switcher in header */
+/* Language switcher (injected by js/lang-switcher.js) */
 .or-lang-switcher {
-    margin-left: auto;
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    font-size: 0.85rem;
+  margin-left: 0.4rem;
+  margin-right: 0.4rem;
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  font-size: 0.7rem;
+  padding: 2px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.14);
 }
-
 .or-lang-btn {
-    background: transparent;
-    border: none;
-    cursor: pointer;
-    padding: 2px 6px;
-    font-weight: 500;
-    opacity: 0.7;
-    border-radius: 999px; /* pill shape */
+  background: transparent;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  padding: 3px 9px;
+  font-weight: 600;
+  opacity: 0.75;
+  border-radius: 999px;
+  transition: background 0.2s, opacity 0.2s;
 }
-
 .or-lang-btn:hover {
-    opacity: 1;
+  opacity: 1;
 }
-
 .or-lang-active {
-    opacity: 1;
-    text-decoration: none;
-    outline: 1px solid rgba(255, 255, 255, 0.6);
-    /* if your header is light, you can change this to a darker color later */
+  opacity: 1;
+  background: #fff;
+  color: var(--or-navy);
 }
-
 .or-lang-sep {
-    opacity: 0.4;
+  display: none;
 }
 
-/* Move logo and site name tightly to the left */
-.md-header__title {
-    margin-left: 0 !important;
-    padding-left: 0 !important;
+/* ---------- 5) Sidebar navigation ---------- */
+.md-nav__item--section > .md-nav__link {
+  text-transform: uppercase;
+  font-size: 0.62rem;
+  letter-spacing: 0.08em;
+  color: var(--md-default-fg-color--light);
+}
+.md-nav__link--active {
+  font-weight: 600;
+}
+
+/* Mobile drawer header: gradient with centered logo + name */
+@media screen and (max-width: 76.2344em) {
+  .md-nav--primary .md-nav__title[for="__drawer"] {
+    background: var(--or-gradient);
+    color: #fff;
+    height: auto;
+    padding: 1.2rem 0.8rem 1rem;
     display: flex;
+    flex-direction: column;
     align-items: center;
-    gap: 4px;  /* distance between logo and text */
+    gap: 0.4rem;
+    font-family: "Space Grotesk", var(--md-text-font-family);
+    font-size: 1rem;
+  }
+  .md-nav--primary .md-nav__title[for="__drawer"] .md-logo {
+    position: static;
+    margin: 0;
+    padding: 0;
+  }
+  .md-nav--primary .md-nav__title[for="__drawer"] .md-logo img {
+    height: 3.6rem;
+    width: auto;
+  }
 }
 
-/* Reduce extra spacing around the logo */
-.md-header__button.md-logo {
-    margin-left: 0 !important;
-    padding-left: 0 !important;
+/* ---------- 6) Content polish ---------- */
+.md-typeset hr {
+  border-bottom: 1px solid var(--md-accent-fg-color--transparent);
 }
 
-/* Mobile drawer header background color */
-.md-nav--primary .md-nav__title[for="__drawer"] {
-    background-color: #b2e9f6;
+.md-typeset .admonition,
+.md-typeset details {
+  border-radius: 10px;
+  border-width: 0 0 0 4px;
+  box-shadow: 0 1px 8px rgba(11, 42, 69, 0.08);
 }
 
-/* Optional: apply the same color to the entire primary sidebar */
-.md-sidebar--primary {
-    background-color: #b2e9f6;
+.md-typeset .md-button {
+  border-radius: 999px;
+  font-weight: 600;
+  transition: transform 0.15s, box-shadow 0.15s;
 }
-/* ------------------------------------------------------
-   FIX MOBILE DRAWER LOGO + TITLE (Material for MkDocs)
-   Only applies on mobile (drawer mode)
-   /* ---------------- MOBILE DRAWER FIX ---------------- */
-   @media (max-width: 900px) {
+.md-typeset .md-button:hover {
+  transform: translateY(-1px);
+}
 
-     /* Main fix: prevent the title area from sticking to the top */
-     .md-nav--primary .md-nav__title {
-         display: flex !important;
-         flex-direction: column !important;   /* Logo on top, text below */
-         align-items: center !important;      /* Center horizontally */
-         justify-content: center !important;  /* Center vertically */
-         padding: 1.2rem 0 !important;        /* Vertical spacing */
-         background-color: #b2e9f6 !important;/* Your chosen header color */
-         min-height: 140px !important;        /* Ensures enough space for logo + text */
-         box-sizing: border-box !important;
-     }
+/* ---------- 7) Hero (home pages) ---------- */
+.or-hero {
+  position: relative;
+  overflow: hidden;
+  margin: 0 0 2rem;
+  padding: 2.4rem 2rem 2.2rem;
+  border-radius: 20px;
+  background: var(--or-gradient);
+  color: #fff;
+  box-shadow: 0 12px 40px rgba(11, 42, 69, 0.28);
+}
 
-     /* Logo image styling */
-     .md-nav--primary .md-nav__title img {
-         width: 82px !important;              /* Logo size */
-         height: auto !important;             /* Maintain proportions */
-         display: block !important;
-         margin-bottom: 0.3rem !important;    /* Space under logo */
-     }
+/* soft wave line at the bottom of the hero */
+.or-hero::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -1px;
+  height: 46px;
+  background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 60' preserveAspectRatio='none'><path d='M0 30 C 200 0 400 60 600 30 S 1000 0 1200 30 V60 H0Z' fill='white' fill-opacity='0.10'/><path d='M0 40 C 250 15 450 65 700 40 S 1050 20 1200 42 V60 H0Z' fill='white' fill-opacity='0.08'/></svg>") no-repeat bottom / 100% 100%;
+  pointer-events: none;
+}
 
-     /* "OceanRithm" text styling */
-     .md-nav--primary .md-nav__title .md-nav__title-text {
-         font-size: 1.1rem !important;
-         font-weight: 700 !important;
-         line-height: 1.25 !important;
-         text-align: center !important;
-         margin: 0 !important;
-         padding: 0 !important;
-         display: block !important;
-     }
+.or-hero__content {
+  position: relative;
+  z-index: 1;
+  max-width: 34rem;
+}
 
-     /* Remove Material default spacing that pushes the logo up */
-     .md-nav--primary nav.md-nav {
-         margin-top: 0 !important;
-         padding-top: 0 !important;
-     }
-   }
+.or-hero__eyebrow {
+  display: inline-block;
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  padding: 0.25rem 0.7rem;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.16);
+  margin-bottom: 0.9rem;
+}
+
+.md-typeset .or-hero__title {
+  margin: 0 0 0.6rem;
+  font-size: 2.4rem;
+  line-height: 1.1;
+  font-weight: 700;
+  color: #fff;
+  -webkit-text-fill-color: #fff;
+  background: none;
+}
+
+.md-typeset .or-hero__lead {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  opacity: 0.92;
+  margin: 0 0 1.4rem;
+}
+
+.md-typeset .or-hero .md-button {
+  margin: 0.2rem 0.4rem 0.2rem 0;
+  color: #fff;
+  border-color: rgba(255, 255, 255, 0.7);
+}
+.md-typeset .or-hero .md-button--primary {
+  background: #fff;
+  color: var(--or-navy);
+  border-color: #fff;
+}
+.md-typeset .or-hero .md-button:hover {
+  background: rgba(255, 255, 255, 0.18);
+  color: #fff;
+  border-color: #fff;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
+}
+.md-typeset .or-hero .md-button--primary:hover {
+  background: #e6f7fb;
+  color: var(--or-navy);
+}
+
+.md-typeset .or-hero__manta {
+  position: absolute;
+  right: -1rem;
+  top: 50%;
+  width: 17rem;
+  transform: translateY(-50%) rotate(-6deg);
+  opacity: 0.9;
+  filter: drop-shadow(0 18px 30px rgba(0, 0, 0, 0.35));
+  animation: or-float 7s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes or-float {
+  0%, 100% { transform: translateY(-50%) rotate(-6deg); }
+  50%      { transform: translateY(-56%) rotate(-3deg); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .md-typeset .or-hero__manta { animation: none; }
+}
+
+@media screen and (max-width: 44.9844em) {
+  .or-hero {
+    padding: 1.6rem 1.2rem 2.4rem;
+    margin-left: -0.4rem;
+    margin-right: -0.4rem;
+    border-radius: 18px;
+  }
+  .or-hero__eyebrow {
+    font-size: 0.55rem;
+    letter-spacing: 0.1em;
+  }
+  .md-typeset .or-hero__title { font-size: 1.9rem; }
+  .md-typeset .or-hero__manta {
+    width: 9rem;
+    right: -1.6rem;
+    top: 1.6rem;
+    transform: rotate(-6deg);
+    opacity: 0.35;
+    animation: none;
+  }
+}
+
+/* Audience chips */
+.or-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 0.6rem 0 1.2rem;
+}
+.md-typeset .or-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.35rem 0.8rem;
+  border-radius: 999px;
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--md-primary-fg-color);
+  background: var(--md-accent-fg-color--transparent);
+  border: 1px solid rgba(18, 168, 179, 0.25);
+}
+[data-md-color-scheme="slate"] .md-typeset .or-chip {
+  color: #b2e9f6;
+}
+.md-typeset .or-chip .twemoji {
+  color: var(--md-accent-fg-color);
+}
+
+.md-typeset .or-muted {
+  color: var(--md-default-fg-color--light);
+  font-size: 0.78rem;
+}
+
+/* ---------- 8) Card grid ---------- */
+.md-typeset .grid.cards > ul > li,
+.md-typeset .grid > .card {
+  border-radius: var(--or-radius);
+  border: 1px solid var(--md-default-fg-color--lightest);
+  border-top: 3px solid var(--md-accent-fg-color);
+  background: var(--md-default-bg-color);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s;
+}
+.md-typeset .grid.cards > ul > li:hover,
+.md-typeset .grid > .card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 28px rgba(11, 42, 69, 0.14);
+  border-color: var(--md-accent-fg-color);
+}
+.md-typeset .grid.cards .lg {
+  color: var(--md-accent-fg-color);
+}
+.md-typeset .grid.cards > ul > li > hr {
+  margin: 0.6rem 0;
+}
+.md-typeset .grid.cards a {
+  font-weight: 600;
+}
+
+/* ---------- 9) Layer stack (architecture) ---------- */
+.or-layers ol {
+  list-style: none;
+  counter-reset: layer;
+  margin: 1rem 0 !important;
+  padding: 0;
+}
+.md-typeset .or-layers ol li {
+  counter-increment: layer;
+  position: relative;
+  margin: 0 0 0.5rem;
+  padding: 0.8rem 1rem 0.8rem 3.4rem;
+  border-radius: 12px;
+  color: #fff;
+  background: var(--or-gradient);
+  box-shadow: 0 4px 14px rgba(11, 42, 69, 0.18);
+}
+.md-typeset .or-layers ol li:nth-child(1) { margin-left: 0; }
+.md-typeset .or-layers ol li:nth-child(2) { margin-left: 0.8rem; filter: hue-rotate(-6deg); }
+.md-typeset .or-layers ol li:nth-child(3) { margin-left: 1.6rem; filter: hue-rotate(-12deg); }
+.md-typeset .or-layers ol li:nth-child(4) { margin-left: 2.4rem; filter: hue-rotate(-18deg); }
+.md-typeset .or-layers ol li:nth-child(5) { margin-left: 3.2rem; filter: hue-rotate(-24deg); }
+.md-typeset .or-layers ol li::before {
+  content: counter(layer);
+  position: absolute;
+  left: 0.9rem;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 1.7rem;
+  height: 1.7rem;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-weight: 700;
+  font-size: 0.8rem;
+  background: rgba(255, 255, 255, 0.2);
+}
+.md-typeset .or-layers ol li strong {
+  color: #fff;
+}
+@media screen and (max-width: 44.9844em) {
+  .md-typeset .or-layers ol li { margin-left: 0 !important; }
+}
+
+/* ---------- 10) Flow diagram (workflow pages) ---------- */
+.or-flow ul {
+  list-style: none;
+  margin: 1.2rem 0 !important;
+  padding: 0;
+  max-width: 24rem;
+}
+.md-typeset .or-flow ul li {
+  position: relative;
+  margin: 0 0 1.6rem !important;
+  padding: 0.75rem 1rem;
+  text-align: center;
+  font-weight: 600;
+  border-radius: 12px;
+  border: 2px solid var(--md-accent-fg-color);
+  background: var(--md-accent-fg-color--transparent);
+}
+.md-typeset .or-flow ul li:first-child {
+  background: var(--or-gradient);
+  color: #fff;
+  border-color: transparent;
+}
+.md-typeset .or-flow ul li:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -1.45rem;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-left: 7px solid transparent;
+  border-right: 7px solid transparent;
+  border-top: 10px solid var(--md-accent-fg-color);
+}
+.md-typeset .or-flow ul li:not(:last-child)::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -0.9rem;
+  width: 2px;
+  height: 0.8rem;
+  transform: translateX(-50%);
+  background: var(--md-accent-fg-color);
+}
+
+/* ---------- 11) Footer ---------- */
+.md-footer {
+  background: var(--or-navy);
+}
+.md-footer-meta {
+  background: #071d31;
+}
+.md-copyright {
+  font-size: 0.68rem;
+}
+
+/* ---------- 12) Small fixes ---------- */
+/* Page titles do not need a permalink symbol */
+.md-typeset h1 .headerlink,
+.or-hero .headerlink {
+  display: none;
+}
+
+/* Keep the site name readable next to the language switcher on phones */
+@media screen and (max-width: 44.9844em) {
+  .md-header__topic { font-size: 0.9rem; }
+  .or-lang-switcher { margin-left: 0.1rem; font-size: 0.6rem; }
+  .or-lang-btn { padding: 3px 7px; }
+}
+
+/* =========================================================
+   13) Motion layer (js/ocean.js)
+   ========================================================= */
+
+/* ---------- Intro ---------- */
+.or-intro {
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+  overflow: hidden;
+  background:
+    radial-gradient(120% 80% at 50% -10%, #1b75bb 0%, #0f4c6e 28%, #072a44 55%, #031320 100%);
+  transition: opacity 0.8s ease, transform 0.9s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+.or-intro--out {
+  opacity: 0;
+  transform: scale(1.12);
+  pointer-events: none;
+}
+.or-intro__gl {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* light rays from the surface */
+.or-intro__rays i {
+  position: absolute;
+  top: -20%;
+  left: var(--l, 30%);
+  width: 14vw;
+  height: 140%;
+  background: linear-gradient(180deg, rgba(178, 233, 246, 0.28), rgba(178, 233, 246, 0) 70%);
+  transform: rotate(var(--r, 12deg));
+  transform-origin: top center;
+  filter: blur(18px);
+  animation: or-ray 6s ease-in-out infinite;
+}
+.or-intro__rays i:nth-child(1) { --l: 8%;  --r: 16deg; animation-delay: -1s; }
+.or-intro__rays i:nth-child(2) { --l: 28%; --r: 10deg; width: 8vw; animation-delay: -3s; }
+.or-intro__rays i:nth-child(3) { --l: 48%; --r: 4deg;  animation-delay: -2s; }
+.or-intro__rays i:nth-child(4) { --l: 66%; --r: -6deg; width: 10vw; animation-delay: -4s; }
+.or-intro__rays i:nth-child(5) { --l: 84%; --r: -12deg; animation-delay: -5s; }
+@keyframes or-ray {
+  0%, 100% { opacity: 0.35; }
+  50%      { opacity: 0.9; }
+}
+
+/* rising bubbles */
+.or-intro__bubbles span {
+  position: absolute;
+  bottom: -20px;
+  left: var(--x);
+  width: var(--s);
+  height: var(--s);
+  border-radius: 50%;
+  border: 1px solid rgba(178, 233, 246, 0.55);
+  background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.5), rgba(178, 233, 246, 0.05) 60%);
+  animation: or-bubble var(--d) linear infinite;
+  animation-delay: var(--w);
+}
+@keyframes or-bubble {
+  0%   { transform: translate3d(0, 0, 0); opacity: 0; }
+  10%  { opacity: 0.9; }
+  100% { transform: translate3d(18px, -110vh, 0); opacity: 0; }
+}
+
+/* brand reveal */
+.or-intro__brand {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  transform: translate(-50%, -50%) scale(0.86);
+  opacity: 0;
+  color: #fff;
+  text-align: center;
+  transition: opacity 0.8s ease, transform 1s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+.or-intro--brand .or-intro__brand {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
+}
+.or-intro__brand img {
+  width: min(46vw, 15rem);
+  height: auto;
+  filter: drop-shadow(0 0 24px rgba(18, 168, 179, 0.55));
+}
+.or-intro__brand strong {
+  font-family: "Space Grotesk", var(--md-text-font-family);
+  font-size: clamp(1.6rem, 5vw, 2.6rem);
+  letter-spacing: 0.02em;
+}
+.or-intro__brand small {
+  font-size: 0.7rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  opacity: 0.8;
+}
+.or-intro__ring {
+  position: absolute;
+  left: 50%;
+  top: 38%;
+  width: 18rem;
+  height: 18rem;
+  margin: -9rem 0 0 -9rem;
+  border-radius: 50%;
+  border: 2px solid rgba(178, 233, 246, 0.5);
+  opacity: 0;
+}
+.or-intro--brand .or-intro__ring {
+  animation: or-ring 1.4s ease-out forwards;
+}
+@keyframes or-ring {
+  0%   { transform: scale(0.3); opacity: 0.9; }
+  100% { transform: scale(2.4); opacity: 0; }
+}
+
+.or-intro__skip {
+  position: absolute;
+  right: 1.2rem;
+  bottom: 1.2rem;
+  padding: 0.45rem 1rem;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  background: rgba(255, 255, 255, 0.08);
+  color: #fff;
+  font: 600 0.7rem/1 var(--md-text-font-family);
+  cursor: pointer;
+  backdrop-filter: blur(6px);
+}
+.or-intro__skip:hover,
+.or-intro__skip:focus-visible {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* ---------- Manta swim on page change ---------- */
+.or-swim {
+  position: fixed;
+  inset: 0;
+  z-index: 9000;
+  pointer-events: none;
+  perspective: 900px;
+  overflow: hidden;
+}
+.or-swim img {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 15rem;
+  filter: drop-shadow(0 30px 40px rgba(11, 42, 69, 0.35));
+  animation: or-swim 1.5s cubic-bezier(0.45, 0.05, 0.25, 1) forwards;
+}
+.or-swim--alt img {
+  animation-name: or-swim-alt;
+}
+@keyframes or-swim {
+  0%   { transform: translate3d(105vw, 8vh, -700px) rotate(-8deg) rotateY(-30deg); opacity: 0; }
+  20%  { opacity: 0.95; }
+  55%  { transform: translate3d(45vw, 30vh, -150px) rotate(4deg) rotateY(-10deg) scale(1.1); opacity: 0.95; }
+  100% { transform: translate3d(-40vw, 75vh, 300px) rotate(14deg) rotateY(20deg) scale(1.6); opacity: 0; }
+}
+@keyframes or-swim-alt {
+  0%   { transform: translate3d(100vw, 70vh, -700px) rotate(10deg) rotateY(-25deg); opacity: 0; }
+  20%  { opacity: 0.95; }
+  55%  { transform: translate3d(40vw, 35vh, -150px) rotate(-6deg) rotateY(-5deg) scale(1.1); opacity: 0.95; }
+  100% { transform: translate3d(-35vw, -20vh, 300px) rotate(-18deg) rotateY(25deg) scale(1.6); opacity: 0; }
+}
+
+/* ---------- 3D page entrance ---------- */
+.md-main__inner {
+  perspective: 1400px;
+}
+.md-content.or-enter {
+  animation: or-enter 0.85s cubic-bezier(0.2, 0.75, 0.2, 1) both;
+  transform-origin: 50% 0;
+}
+@keyframes or-enter {
+  0%   { opacity: 0; transform: translate3d(0, 50px, -160px) rotateX(9deg); filter: blur(4px); }
+  100% { opacity: 1; transform: none; filter: none; }
+}
+
+/* ---------- Scroll reveal (only when JS runs) ---------- */
+.or-js .or-reveal {
+  opacity: 0;
+  transform: translate3d(0, 34px, -60px) rotateX(10deg);
+  transition: opacity 0.7s ease, transform 0.8s cubic-bezier(0.2, 0.75, 0.2, 1);
+  transition-delay: var(--or-delay, 0ms);
+}
+.or-js .or-reveal.or-in {
+  opacity: 1;
+  transform: none;
+}
+
+/* ---------- Live hero manta ---------- */
+.or-hero {
+  transition: transform 0.4s ease-out;
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+.or-hero__gl {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 46%;
+  height: 100%;
+  pointer-events: none;
+  filter: drop-shadow(0 22px 30px rgba(0, 0, 0, 0.35));
+}
+.or-hero--live .or-hero__manta {
+  opacity: 0 !important;
+}
+@media screen and (max-width: 44.9844em) {
+  .or-hero__gl {
+    width: 62%;
+    height: 58%;
+    right: -12%;
+    opacity: 0.45;
+  }
+}
+
+/* ---------- Tilt cards with glare ---------- */
+.md-typeset .grid.cards > ul > li {
+  position: relative;
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+.md-typeset .grid.cards > ul > li::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  opacity: 0;
+  background: radial-gradient(circle at var(--mx, 50%) var(--my, 50%), rgba(178, 233, 246, 0.35), transparent 55%);
+  transition: opacity 0.3s;
+}
+.md-typeset .grid.cards > ul > li.or-tilting {
+  transition: transform 0.08s linear, box-shadow 0.2s;
+  box-shadow: 0 22px 44px rgba(11, 42, 69, 0.22);
+}
+.md-typeset .grid.cards > ul > li.or-tilting::after {
+  opacity: 1;
+}
+
+/* ---------- 3D layer stack ---------- */
+.or-layers {
+  perspective: 1100px;
+}
+.or-layers ol {
+  transform: rotateX(16deg);
+  transform-style: preserve-3d;
+  transform-origin: 50% 100%;
+}
+.md-typeset .or-layers ol li {
+  transition: transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.35s;
+}
+.md-typeset .or-layers ol li:hover {
+  transform: translateZ(46px) translateX(6px);
+  box-shadow: 0 18px 34px rgba(11, 42, 69, 0.35);
+}
+.or-js .or-layers.or-reveal { opacity: 1; transform: none; }
+.or-js .or-layers.or-reveal ol li {
+  opacity: 0;
+  transform: translate3d(0, -70px, 140px);
+}
+.or-js .or-layers.or-reveal.or-in ol li {
+  opacity: 1;
+  transform: none;
+  animation: or-drop 0.7s cubic-bezier(0.2, 0.9, 0.25, 1.15) backwards;
+}
+.or-js .or-layers.or-in ol li:nth-child(2) { animation-delay: 0.12s; }
+.or-js .or-layers.or-in ol li:nth-child(3) { animation-delay: 0.24s; }
+.or-js .or-layers.or-in ol li:nth-child(4) { animation-delay: 0.36s; }
+.or-js .or-layers.or-in ol li:nth-child(5) { animation-delay: 0.48s; }
+@keyframes or-drop {
+  from { opacity: 0; transform: translate3d(0, -70px, 140px); }
+  to   { opacity: 1; transform: none; }
+}
+.md-typeset .or-layers.or-in ol li:hover {
+  transform: translateZ(46px) translateX(6px);
+}
+
+/* ---------- Flow: a signal travels down the chain ---------- */
+.md-typeset .or-flow ul li {
+  animation: or-pulse 4.2s ease-in-out infinite;
+}
+.md-typeset .or-flow ul li:nth-child(1) { animation-delay: 0s; }
+.md-typeset .or-flow ul li:nth-child(2) { animation-delay: 0.6s; }
+.md-typeset .or-flow ul li:nth-child(3) { animation-delay: 1.2s; }
+.md-typeset .or-flow ul li:nth-child(4) { animation-delay: 1.8s; }
+.md-typeset .or-flow ul li:nth-child(5) { animation-delay: 2.4s; }
+.md-typeset .or-flow ul li:nth-child(6) { animation-delay: 3.0s; }
+@keyframes or-pulse {
+  0%, 22%, 100% { box-shadow: 0 0 0 rgba(18, 168, 179, 0); transform: none; }
+  8%            { box-shadow: 0 0 0 4px rgba(18, 168, 179, 0.25), 0 0 26px rgba(18, 168, 179, 0.55); transform: scale(1.04); }
+}
+
+/* ---------- Respect reduced motion ---------- */
+@media (prefers-reduced-motion: reduce) {
+  .or-intro, .or-swim { display: none !important; }
+  .md-content.or-enter,
+  .md-typeset .or-flow ul li,
+  .or-js .or-layers.or-in ol li { animation: none !important; }
+  .or-js .or-reveal,
+  .or-js .or-layers.or-reveal ol li { opacity: 1 !important; transform: none !important; }
+  .or-hero { transform: none !important; }
+}
