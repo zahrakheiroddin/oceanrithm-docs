@@ -1751,3 +1751,44 @@ html.or-abyss-on body[data-md-color-scheme="default"] .md-typeset .grid.cards > 
     color: #1b75bb;
   }
 }
+
+/* =========================================================
+   24) Day mode flow diagram: dark neon plates like at night,
+   with a glass shine, so it looks just as sharp in daylight.
+   ========================================================= */
+html.or-abyss-on body[data-md-color-scheme="default"] .md-typeset .or-flow ul li {
+  color: #e8fbff;
+  border-color: #3fd3dd;
+  background:
+    linear-gradient(rgba(255, 255, 255, 0.35), rgba(255, 255, 255, 0)) left top / 100% 1px no-repeat,
+    linear-gradient(160deg, rgba(255, 255, 255, 0.16) 0%, rgba(255, 255, 255, 0.04) 40%, rgba(255, 255, 255, 0) 41%),
+    radial-gradient(80% 140% at 50% 0%, rgba(79, 209, 219, 0.22), transparent 70%),
+    rgba(6, 30, 50, 0.86);
+  box-shadow: 0 0 0 1px rgba(79, 209, 219, 0.25), 0 0 18px rgba(63, 211, 221, 0.35), 0 10px 24px rgba(4, 30, 50, 0.35);
+  text-shadow: 0 0 10px rgba(143, 240, 245, 0.35);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+}
+html.or-abyss-on body[data-md-color-scheme="default"] .md-typeset .or-flow ul li:first-child {
+  color: #fff;
+  border-color: #3fd3dd;
+  background:
+    linear-gradient(rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0)) left top / 100% 1px no-repeat,
+    linear-gradient(160deg, rgba(255, 255, 255, 0.18) 0%, rgba(255, 255, 255, 0.05) 40%, rgba(255, 255, 255, 0) 41%),
+    var(--or-gradient);
+}
+html.or-abyss-on body[data-md-color-scheme="default"] .md-typeset .or-flow ul li:not(:last-child)::before {
+  background: #1fb8c4;
+  box-shadow: 0 0 8px rgba(63, 211, 221, 0.9);
+}
+html.or-abyss-on body[data-md-color-scheme="default"] .md-typeset .or-flow ul li:not(:last-child)::after {
+  border-top-color: #1fb8c4;
+  filter: drop-shadow(0 0 5px rgba(63, 211, 221, 0.9));
+}
+@keyframes or-pulse-day {
+  0%, 22%, 100% { box-shadow: 0 0 0 1px rgba(79, 209, 219, 0.25), 0 0 18px rgba(63, 211, 221, 0.35), 0 10px 24px rgba(4, 30, 50, 0.35); transform: none; }
+  8%            { box-shadow: 0 0 0 4px rgba(63, 211, 221, 0.35), 0 0 34px rgba(63, 211, 221, 0.85), 0 10px 24px rgba(4, 30, 50, 0.35); transform: scale(1.04); }
+}
+html.or-abyss-on body[data-md-color-scheme="default"] .md-typeset .or-flow ul li {
+  animation-name: or-pulse-day;
+}
