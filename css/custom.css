@@ -1733,3 +1733,21 @@ html.or-abyss-on body[data-md-color-scheme="default"] .md-typeset .grid.cards > 
     backdrop-filter: blur(18px) saturate(140%) brightness(1.05);
   }
 }
+
+/* =========================================================
+   23) Day mode menu drawer (iPad and phones): dark blue links
+   on the light list so they are easy to read.
+   ========================================================= */
+@media screen and (max-width: 76.2344em) {
+  html.or-abyss-on body[data-md-color-scheme="default"] .md-nav--primary .md-nav__link {
+    color: #0b3d63;
+  }
+  html.or-abyss-on body[data-md-color-scheme="default"] .md-nav--primary .md-nav__link--active {
+    color: #0a6f8a;
+    font-weight: 700;
+  }
+  html.or-abyss-on body[data-md-color-scheme="default"] .md-nav--primary .md-nav__link:hover,
+  html.or-abyss-on body[data-md-color-scheme="default"] .md-nav--primary .md-nav__link:focus {
+    color: #1b75bb;
+  }
+}
